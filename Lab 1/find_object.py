@@ -110,13 +110,6 @@ while(1):
             radius=int(center[2]), 
             color=(0, 255, 0), 
             thickness=2)
-        
-    # if circles[0] is not None:
-    #     cv2.circle(input_frame, 
-    #         center=(circles[0][0], circles[0][1]), 
-    #         radius=circles[1], 
-    #         color=(0, 255, 0), 
-    #         thickness=2)
 
     # Display the resulting frame, quit with q
     cv2.imshow('frame', input_frame)
