@@ -5,7 +5,7 @@ import argparse
 import time
 import imutils
 
-ballLower = (0, 120, 0)
+ballLower = (0, 110, 0)
 ballUpper = (15, 255, 255)
 def get_circles(input_frame):
     
