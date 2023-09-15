@@ -66,7 +66,7 @@ def get_circles_countours(input_frame):
 	# only proceed if at least one contour was found
     if len(cnts) > 0:
 		# find the largest contour in the mask, then use
-		# it to compute the minimum enclosing circle and
+		# it to compute the minimum enclosisng circle and
 		# centroid
         c = max(cnts, key=cv2.contourArea)
         ((x, y), radius) = cv2.minEnclosingCircle(c)
