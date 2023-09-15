@@ -5,26 +5,28 @@ import argparse
 import time
 import imutils
 
-ballLower = (0, 150, 0)
-ballUpper = (10, 255, 255)
+ballLower = (0, 120, 0)
+ballUpper = (15, 255, 255)
 def get_circles(input_frame):
     
     frame = input_frame.copy()
 
     # frame[0:int(len(frame)//3)] = 0
 
-    blurred = cv2.medianBlur(frame, 5)
+    blurred = cv2.medianBlur(frame, 3)
     hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
     
     mask = cv2.inRange(hsv, ballLower, ballUpper)
 
-    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(19,19))
-    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(15,15))
+    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
+    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
     
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, close_struct)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
     
-    mask = cv2.GaussianBlur(mask, (15, 15), 2, 2)
+    mask = cv2.GaussianBlur(mask, (3, 3), 5, 2)
+    
+    cv2.imshow('mask', mask)
 
     circles = cv2.HoughCircles(mask, 
         cv2.HOUGH_GRADIENT, 
@@ -43,18 +45,18 @@ def get_circles_countours(input_frame):
 
     # frame[0:int(len(frame)//3)] = 0
 
-    blurred = cv2.medianBlur(frame, 5)
+    blurred = cv2.medianBlur(frame, 3)
     hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
     
     mask = cv2.inRange(hsv, ballLower, ballUpper)
 
-    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(19,19))
-    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(15,15))
+    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
+    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3))
     
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, close_struct)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
     
-    mask = cv2.GaussianBlur(mask, (15, 15), 2, 2)
+    mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
 
     cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cnts = imutils.grab_contours(cnts)
@@ -99,15 +101,15 @@ while(1):
     
     if circles is not None and center[0] is not None:
         
-        circles = circles[0]
+        circles = circles[0]    
         center_circles = [circles[0, 0], circles[0, 1], circles[0, 2]]
         center_contours = [center[0][0], center[0][1], center[1]]
-        centers = np.array([center_circles, center_contours])
-        center = np.average(centers, axis=0)
-        print(center)
+        centers = center_contours
+        #center = np.average(centers, axis=0)
+        print(centers)
         cv2.circle(input_frame, 
-            center=(int(center[0]), int(center[1])), 
-            radius=int(center[2]), 
+            center=(int(centers[0]), int(centers[1])), 
+            radius=int(centers[2]), 
             color=(0, 255, 0), 
             thickness=2)
         
