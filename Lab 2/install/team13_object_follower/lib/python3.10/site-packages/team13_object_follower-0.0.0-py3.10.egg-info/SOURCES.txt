@@ -12,8 +12,6 @@ resource/team13_object_follower
 team13_object_follower/__init__.py
 team13_object_follower/find_object.py
 team13_object_follower/rotate_robot.py
-team13_object_follower/view_image_raw.py
-team13_object_follower/view_image_raw2.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
