@@ -5,7 +5,7 @@ import argparse
 import time
 import imutils
 
-ballLower = (0, 110, 0)
+ballLower = (0, 150, 0)
 ballUpper = (15, 255, 255)
 def get_circles(input_frame):
     
@@ -50,13 +50,15 @@ def get_circles_countours(input_frame):
     
     mask = cv2.inRange(hsv, ballLower, ballUpper)
 
-    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
-    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3))
+    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
+    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
     
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, close_struct)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
     
     mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
+
+    cv2.imshow('mask', mask)
 
     cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cnts = imutils.grab_contours(cnts)
