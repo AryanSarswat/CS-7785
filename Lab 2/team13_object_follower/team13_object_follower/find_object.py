@@ -8,124 +8,96 @@ import argparse
 import time
 import imutils
 
-ballLower = (0, 150, 0)
-ballUpper = (15, 255, 255)
-def get_circles(input_frame):
-    
-    frame = input_frame.copy()
-
-    # frame[0:int(len(frame)//3)] = 0
-
-    blurred = cv2.medianBlur(frame, 3)
-    hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
-    
-    mask = cv2.inRange(hsv, ballLower, ballUpper)
-
-    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
-    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
-    
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, close_struct)
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
-    
-    mask = cv2.GaussianBlur(mask, (3, 3), 5, 2)
-    
-    cv2.imshow('mask', mask)
-
-    circles = cv2.HoughCircles(mask, 
-        cv2.HOUGH_GRADIENT, 
-        1, 
-        mask.shape[0] / 4, 
-        param1=40, 
-        param2=20, 
-        minRadius=10, 
-        maxRadius=0)
-    
-    return circles, mask
-
-def get_circles_countours(input_frame):
-    
-    frame = input_frame.copy()
-
-    # frame[0:int(len(frame)//3)] = 0
-
-    blurred = cv2.medianBlur(frame, 3)
-    hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
-    
-    mask = cv2.inRange(hsv, ballLower, ballUpper)
-
-    open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
-    close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
-    
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, close_struct)
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
-    
-    mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
-
-    cv2.imshow('mask', mask)
-
-    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    cnts = imutils.grab_contours(cnts)
-	
-    center = None
-    radius = 0
-	# only proceed if at least one contour was found
-    if len(cnts) > 0:
-		# find the largest contour in the mask, then use
-		# it to compute the minimum enclosisng circle and
-		# centroid
-        c = max(cnts, key=cv2.contourArea)
-        ((x, y), radius) = cv2.minEnclosingCircle(c)
-        M = cv2.moments(c)
-        center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
-		# only proceed if the radius meets a minimum size
-        if radius > 10:
-			# draw the circle and centroid on the frame,
-			# then update the list of tracked points
-            cv2.circle(frame, (int(x), int(y)), int(radius),
-				(0, 255, 255), 2)
-            cv2.circle(frame, center, 5, (0, 0, 255), -1)
-    
-    return [center, int(radius)], mask
-
-vs = cv2.VideoCapture(0)
-
-frame_width = int(vs.get(3))
-frame_height = int(vs.get(4))
-
-out = cv2.VideoWriter('outpy2.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
-
-# Start a while loop
-while(1):
-
-    # Reading the video from the
-    # webcam in image frames
-    ret, input_frame = vs.read()
-    
-    circles, mask = get_circles(input_frame)
-    center, mask = get_circles_countours(input_frame)
-    
-    if circles is not None and center[0] is not None:
+class DetectObject:
+    def __init__(self):
+        self.ballLower = (0, 150, 0)
+        self.ballUpper = (15, 255, 255)
+        self.video_cap = cv2.VideoCapture(0)
         
-        circles = circles[0]    
-        center_circles = [circles[0, 0], circles[0, 1], circles[0, 2]]
-        center_contours = [center[0][0], center[0][1], center[1]]
-        centers = center_contours
-        #center = np.average(centers, axis=0)
-        print(centers)
-        cv2.circle(input_frame, 
-            center=(int(centers[0]), int(centers[1])), 
-            radius=int(centers[2]), 
-            color=(0, 255, 0), 
-            thickness=2)
+        self.frame_height = int(self.video_cap.get(4))
+        self.frame_width = int(self.video_cap.get(3))
+        self.video_writer = cv2.VideoWriter('outpy2.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 10, (self.frame_width,self.frame_height))
+    
+    def pre_process(self, input_frame):
+        frame = input_frame.copy()
 
-    # Display the resulting frame, quit with q
-    cv2.imshow('frame', input_frame)
-    # cv2.imshow('mask', mask)
-    # cv2.imwrite("color_mask.jpg", mask)
-    out.write(input_frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+        # Median blur to remove noise
+        blurred = cv2.medianBlur(frame, 3)
+        
+        # Convert to HSV
+        hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
+        
+        # Apply Color mask mask
+        mask = cv2.inRange(hsv, self.ballLower, self.ballUpper)
 
+        # Open and close morphological operations
+        open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
+        close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
+        
+        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, close_struct)
+        mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
+        
+        # Gaussian blur to smooth edges
+        mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
 
-out.release()
-vs.release()
+        #cv2.imshow('mask', mask)
+        
+        return mask
+    
+    def get_contours(self, pre_processed_frame):
+        cnts = cv2.findContours(pre_processed_frame.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        cnts = imutils.grab_contours(cnts)
+        
+        center = None
+        radius = 0
+        # only proceed if at least one contour was found
+        if len(cnts) > 0:
+            # find the largest contour in the mask, then use
+            # it to compute the minimum enclosisng circle and
+            # centroid
+            c = max(cnts, key=cv2.contourArea)
+            ((x, y), radius) = cv2.minEnclosingCircle(c)
+            M = cv2.moments(c)
+            center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
+            # only proceed if the radius meets a minimum size
+            if radius > 10:
+                # draw the circle and centroid on the frame,
+                # then update the list of tracked points
+                cv2.circle(frame, (int(x), int(y)), int(radius),
+                    (0, 255, 255), 2)
+                cv2.circle(frame, center, 5, (0, 0, 255), -1)
+        
+        return [center, int(radius)]
+    
+    def detect_object(self, input_frame):
+        pre_processed_frame = self.pre_process(input_frame)
+        center, radius = self.get_contours(pre_processed_frame)
+        return center, radius, pre_processed_frame
+    
+    def start(self):
+        
+        while True:
+            ret, input_frame = self.video_cap.read()
+            
+            center, radius, pre_processed_frame = self.detect_object(input_frame)
+            
+            if center is not None:
+                cv2.circle(input_frame, 
+                    center=(int(center[0]), int(center[1])), 
+                    radius=int(radius), 
+                    color=(0, 255, 0), 
+                    thickness=2)
+                
+            cv2.imshow('frame', input_frame)
+            self.video_writer.write(input_frame)
+            
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+        
+        self.video_writer.release()
+        self.video_cap.release()
+
+if __name__ == '__main__':
+    object_detector = DetectObject()
+    object_detector.start()
+    cv2.destroyAllWindows()
