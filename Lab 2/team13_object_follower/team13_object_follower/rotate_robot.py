@@ -47,6 +47,10 @@ class Rotate_Robot(Node):
         else:
             pass
         
+        self._user_input =  cv2.waitKey(1)
+        if self._user_input == ord('q'):
+            raise SystemExit
+        
     def rotate_left(self, magnitude):
         if magnitude > 100:
             angle = 0.5
@@ -67,4 +71,14 @@ class Rotate_Robot(Node):
         self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=-angle)))
         self.cmd_publisher.publish(String(data='rotate_right'))
         
-        
+def main():
+    rclpy.init()
+    rotate_robot = Rotate_Robot()
+    
+    try:
+        rclpy.spin(object_detector)
+    except SystemExit:
+        rclpy.logging.get_logger("Rotate Object node...").info("Shutting Down")
+    
+    rotate_robot.destroy_node()
+    rclpy.shutdown()
