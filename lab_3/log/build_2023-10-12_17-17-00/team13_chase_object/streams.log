@@ -1,0 +1,44 @@
+[0.630s] Invoking command in '/home/aryan/CS-7785/lab_3/team13_chase_object': PYTHONPATH=/home/aryan/CS-7785/lab_3/build/team13_chase_object/prefix_override:/home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/team13_chase_object build --build-base /home/aryan/CS-7785/lab_3/build/team13_chase_object/build install --record /home/aryan/CS-7785/lab_3/build/team13_chase_object/install.log --single-version-externally-managed
+[0.824s] running egg_info
+[0.825s] creating ../build/team13_chase_object/team13_chase_object.egg-info
+[0.825s] writing ../build/team13_chase_object/team13_chase_object.egg-info/PKG-INFO
+[0.825s] writing dependency_links to ../build/team13_chase_object/team13_chase_object.egg-info/dependency_links.txt
+[0.825s] writing entry points to ../build/team13_chase_object/team13_chase_object.egg-info/entry_points.txt
+[0.826s] writing requirements to ../build/team13_chase_object/team13_chase_object.egg-info/requires.txt
+[0.826s] writing top-level names to ../build/team13_chase_object/team13_chase_object.egg-info/top_level.txt
+[0.826s] writing manifest file '../build/team13_chase_object/team13_chase_object.egg-info/SOURCES.txt'
+[0.827s] reading manifest file '../build/team13_chase_object/team13_chase_object.egg-info/SOURCES.txt'
+[0.829s] writing manifest file '../build/team13_chase_object/team13_chase_object.egg-info/SOURCES.txt'
+[0.829s] running build
+[0.829s] running build_py
+[0.829s] creating /home/aryan/CS-7785/lab_3/build/team13_chase_object/build
+[0.829s] creating /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib
+[0.830s] creating /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object
+[0.830s] copying team13_chase_object/get_object_range.py -> /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object
+[0.830s] copying team13_chase_object/chase_object.py -> /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object
+[0.830s] copying team13_chase_object/detect_object.py -> /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object
+[0.830s] copying team13_chase_object/__init__.py -> /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object
+[0.830s] running install
+[0.830s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.830s]   warnings.warn(
+[0.830s] running install_lib
+[0.831s] creating /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object
+[0.831s] copying /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object/get_object_range.py -> /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object
+[0.831s] copying /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object/chase_object.py -> /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object
+[0.831s] copying /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object/detect_object.py -> /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object
+[0.831s] copying /home/aryan/CS-7785/lab_3/build/team13_chase_object/build/lib/team13_chase_object/__init__.py -> /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object
+[0.831s] byte-compiling /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/get_object_range.py to get_object_range.cpython-310.pyc
+[0.831s] byte-compiling /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/chase_object.py to chase_object.cpython-310.pyc
+[0.832s] byte-compiling /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/detect_object.py to detect_object.cpython-310.pyc
+[0.833s] byte-compiling /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/__init__.py to __init__.cpython-310.pyc
+[0.833s] running install_data
+[0.833s] creating /home/aryan/CS-7785/lab_3/install/team13_chase_object/share/ament_index
+[0.833s] creating /home/aryan/CS-7785/lab_3/install/team13_chase_object/share/ament_index/resource_index
+[0.833s] creating /home/aryan/CS-7785/lab_3/install/team13_chase_object/share/ament_index/resource_index/packages
+[0.833s] copying resource/team13_chase_object -> /home/aryan/CS-7785/lab_3/install/team13_chase_object/share/ament_index/resource_index/packages
+[0.833s] copying package.xml -> /home/aryan/CS-7785/lab_3/install/team13_chase_object/share/team13_chase_object
+[0.833s] running install_egg_info
+[0.835s] Copying ../build/team13_chase_object/team13_chase_object.egg-info to /home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object-0.0.0-py3.10.egg-info
+[0.835s] running install_scripts
+[0.851s] writing list of installed files to '/home/aryan/CS-7785/lab_3/build/team13_chase_object/install.log'
+[0.866s] Invoked command in '/home/aryan/CS-7785/lab_3/team13_chase_object' returned '0': PYTHONPATH=/home/aryan/CS-7785/lab_3/build/team13_chase_object/prefix_override:/home/aryan/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/team13_chase_object build --build-base /home/aryan/CS-7785/lab_3/build/team13_chase_object/build install --record /home/aryan/CS-7785/lab_3/build/team13_chase_object/install.log --single-version-externally-managed

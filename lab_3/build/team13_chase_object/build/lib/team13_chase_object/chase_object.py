@@ -13,10 +13,10 @@ import numpy as np
 import cv2
 from cv_bridge import CvBridge
 
-class RangeDetector(Node):
+class ChaseObject(Node):
     def __init__(self):
         # Creates the node.
-        super().__init__('range_detector_node')
+        super().__init__('chase_object_node')
         
         #Set up QoS Profiles for LIDAR Data
         lidar_qos_profile = QoSProfile(depth=5)
