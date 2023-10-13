@@ -10,8 +10,9 @@ build/team13_chase_object/team13_chase_object.egg-info/top_level.txt
 build/team13_chase_object/team13_chase_object.egg-info/zip-safe
 resource/team13_chase_object
 team13_chase_object/__init__.py
-team13_chase_object/find_object.py
-team13_chase_object/rotate_robot.py
+team13_chase_object/chase_object.py
+team13_chase_object/detect_object.py
+team13_chase_object/get_object_range.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py

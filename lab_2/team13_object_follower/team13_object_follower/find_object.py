@@ -92,9 +92,12 @@ class DetectObject(Node):
         
     def pre_process(self, input_frame):
         frame = input_frame.copy()
-
+        
         # Median blur to remove noise
         blurred = cv2.medianBlur(frame, 3)
+        
+        # Bi-lateral filter
+        blurred = cv2.bilateralFilter(blurred, 10, 30, 30) 
         
         # Convert to HSV
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
@@ -110,9 +113,7 @@ class DetectObject(Node):
         mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
         
         # Gaussian blur to smooth edges
-        mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
-
-        #cv2.imshow('mask', mask)
+        #mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
         
         return mask
     
@@ -145,6 +146,12 @@ class DetectObject(Node):
     
     def detect_object(self, input_frame):
         pre_processed_frame = self.pre_process(input_frame)
+        
+        # Apply mask
+        post_mask = cv2.bitwise_and(input_frame, input_frame, mask=pre_processed_frame)
+        
+        cv2.imshow('relevant_region', post_mask)
+        
         center, radius = self.get_contours(pre_processed_frame)
         return center, radius, pre_processed_frame
 

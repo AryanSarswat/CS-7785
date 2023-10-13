@@ -1,0 +1,18 @@
+/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` directly.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+  File "/home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/get_object_range.py", line 57
+    for idx in range(idx - 1    0, idx + 10, 1):
+                     ^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+

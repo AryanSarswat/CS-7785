@@ -1,0 +1,16 @@
+[0.000000] (-) TimerEvent: {}
+[0.001876] (team13_chase_object) JobQueued: {'identifier': 'team13_chase_object', 'dependencies': OrderedDict()}
+[0.003238] (team13_chase_object) JobStarted: {'identifier': 'team13_chase_object'}
+[0.098506] (-) TimerEvent: {}
+[0.199342] (-) TimerEvent: {}
+[0.300716] (-) TimerEvent: {}
+[0.401854] (-) TimerEvent: {}
+[0.502535] (-) TimerEvent: {}
+[0.603730] (-) TimerEvent: {}
+[0.704933] (-) TimerEvent: {}
+[0.805746] (-) TimerEvent: {}
+[0.906504] (-) TimerEvent: {}
+[1.007655] (-) TimerEvent: {}
+[1.108754] (-) TimerEvent: {}
+[1.180636] (team13_chase_object) JobEnded: {'identifier': 'team13_chase_object', 'rc': 0}
+[1.184917] (-) EventReactorShutdown: {}

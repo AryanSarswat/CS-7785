@@ -1,15 +1,17 @@
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/find_object.py
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/rotate_robot.py
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__init__.py
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__pycache__/find_object.cpython-310.pyc
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__pycache__/rotate_robot.cpython-310.pyc
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__pycache__/__init__.cpython-310.pyc
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/share/ament_index/resource_index/packages/team13_object_follower
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/share/team13_object_follower/package.xml
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/dependency_links.txt
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/entry_points.txt
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/SOURCES.txt
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/PKG-INFO
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/zip-safe
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/requires.txt
-/home/aryan/CS-7785/Lab 2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/top_level.txt
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/rotate_robot.py
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__init__.py
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/find_object.py
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__pycache__/rotate_robot.cpython-310.pyc
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__pycache__/__init__.cpython-310.pyc
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/__pycache__/find_object.cpython-310.pyc
+/home/burger/CS-7785/lab_2/install/team13_object_follower/share/ament_index/resource_index/packages/team13_object_follower
+/home/burger/CS-7785/lab_2/install/team13_object_follower/share/team13_object_follower/package.xml
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/entry_points.txt
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/SOURCES.txt
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/dependency_links.txt
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/PKG-INFO
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/zip-safe
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/requires.txt
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info/top_level.txt
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/team13_object_follower/find_object
+/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/team13_object_follower/rotate_robot

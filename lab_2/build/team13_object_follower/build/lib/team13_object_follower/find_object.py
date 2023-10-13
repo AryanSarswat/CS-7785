@@ -1,4 +1,5 @@
-# Team - Aaron Zhao, Aryan Sarswat
+#!/usr/bin/env python
+# Team Aaron, Aryan
 
 import rclpy
 from rclpy.node import Node
@@ -19,7 +20,7 @@ class DetectObject(Node):
         super().__init__('detect_object_node')
         
         self.ballLower = (0, 150, 0)
-        self.ballUpper = (15, 255, 255)
+        self.ballUpper = (8, 255, 255)
         
         self.declare_parameter('show_image_bool', True)
         self.declare_parameter('window_name', "Raw Image")
@@ -31,7 +32,7 @@ class DetectObject(Node):
         self._titleOriginal = self.get_parameter('window_name').value # Image Window Title
         if(self._display_image):
             # Set Up Image Viewing
-            cv2.namedWindow(self._titleOriginal, cv2.WINDOW_AUTOSIZE )
+            cv2.namedWindow(self._titleOriginal, cv2.WINDOW_AUTOSIZE)
             cv2.moveWindow(self._titleOriginal, 50, 50)
         
         #Set up QoS Profiles for passing images over WiFi
@@ -91,9 +92,12 @@ class DetectObject(Node):
         
     def pre_process(self, input_frame):
         frame = input_frame.copy()
-
+        
         # Median blur to remove noise
         blurred = cv2.medianBlur(frame, 3)
+        
+        # Bi-lateral filter
+        blurred = cv2.bilateralFilter(blurred, 10, 30, 30) 
         
         # Convert to HSV
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
@@ -109,13 +113,12 @@ class DetectObject(Node):
         mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, open_struct)
         
         # Gaussian blur to smooth edges
-        mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
-
-        #cv2.imshow('mask', mask)
+        #mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
         
         return mask
     
     def get_contours(self, pre_processed_frame):
+        height, width = pre_processed_frame.shape
         cnts = cv2.findContours(pre_processed_frame.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         cnts = imutils.grab_contours(cnts)
         
@@ -131,17 +134,24 @@ class DetectObject(Node):
             M = cv2.moments(c)
             center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
             # only proceed if the radius meets a minimum size
-            if radius > 10:
+            if radius > 50:
                 # draw the circle and centroid on the frame,
                 # then update the list of tracked points
-                cv2.circle(frame, (int(x), int(y)), int(radius),
-                    (0, 255, 255), 2)
-                cv2.circle(frame, center, 5, (0, 0, 255), -1)
+                if radius >  width / 2:
+                    radius = width // 2
+                cv2.circle(pre_processed_frame, (int(x), int(y)), int(radius),(0, 255, 255), 2)
+                cv2.circle(pre_processed_frame, center, 5, (0, 0, 255), -1)
         
         return [center, int(radius)]
     
     def detect_object(self, input_frame):
         pre_processed_frame = self.pre_process(input_frame)
+        
+        # Apply mask
+        post_mask = cv2.bitwise_and(input_frame, input_frame, mask=pre_processed_frame)
+        
+        cv2.imshow('relevant_region', post_mask)
+        
         center, radius = self.get_contours(pre_processed_frame)
         return center, radius, pre_processed_frame
 

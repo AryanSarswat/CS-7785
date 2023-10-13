@@ -1,0 +1,37 @@
+running egg_info
+writing ../build/team13_object_follower/team13_object_follower.egg-info/PKG-INFO
+writing dependency_links to ../build/team13_object_follower/team13_object_follower.egg-info/dependency_links.txt
+deleting ../build/team13_object_follower/team13_object_follower.egg-info/entry_points.txt
+writing requirements to ../build/team13_object_follower/team13_object_follower.egg-info/requires.txt
+writing top-level names to ../build/team13_object_follower/team13_object_follower.egg-info/top_level.txt
+reading manifest file '../build/team13_object_follower/team13_object_follower.egg-info/SOURCES.txt'
+writing manifest file '../build/team13_object_follower/team13_object_follower.egg-info/SOURCES.txt'
+running build
+running build_py
+copying team13_object_follower/rotate_robot.py -> /home/burger/CS-7785/lab_2/build/team13_object_follower/build/lib/team13_object_follower
+copying team13_object_follower/find_object.py -> /home/burger/CS-7785/lab_2/build/team13_object_follower/build/lib/team13_object_follower
+running install
+/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` directly.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+running install_lib
+copying /home/burger/CS-7785/lab_2/build/team13_object_follower/build/lib/team13_object_follower/rotate_robot.py -> /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower
+copying /home/burger/CS-7785/lab_2/build/team13_object_follower/build/lib/team13_object_follower/find_object.py -> /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower
+byte-compiling /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/rotate_robot.py to rotate_robot.cpython-310.pyc
+byte-compiling /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/find_object.py to find_object.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../build/team13_object_follower/team13_object_follower.egg-info to /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/burger/CS-7785/lab_2/build/team13_object_follower/install.log'

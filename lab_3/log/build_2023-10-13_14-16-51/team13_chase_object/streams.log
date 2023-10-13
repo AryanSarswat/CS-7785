@@ -1,0 +1,42 @@
+[3.562s] Invoking command in '/home/burger/CS-7785/lab_3/team13_chase_object': PYTHONPATH=/home/burger/CS-7785/lab_3/build/team13_chase_object/prefix_override:/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/team13_chase_object build --build-base /home/burger/CS-7785/lab_3/build/team13_chase_object/build install --record /home/burger/CS-7785/lab_3/build/team13_chase_object/install.log --single-version-externally-managed
+[4.709s] running egg_info
+[4.815s] writing ../build/team13_chase_object/team13_chase_object.egg-info/PKG-INFO
+[4.819s] writing dependency_links to ../build/team13_chase_object/team13_chase_object.egg-info/dependency_links.txt
+[4.823s] writing entry points to ../build/team13_chase_object/team13_chase_object.egg-info/entry_points.txt
+[4.828s] writing requirements to ../build/team13_chase_object/team13_chase_object.egg-info/requires.txt
+[4.831s] writing top-level names to ../build/team13_chase_object/team13_chase_object.egg-info/top_level.txt
+[5.033s] reading manifest file '../build/team13_chase_object/team13_chase_object.egg-info/SOURCES.txt'
+[5.038s] writing manifest file '../build/team13_chase_object/team13_chase_object.egg-info/SOURCES.txt'
+[5.039s] running build
+[5.040s] running build_py
+[5.042s] running install
+[5.044s] /usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[5.045s] !!
+[5.046s] 
+[5.048s]         ********************************************************************************
+[5.049s]         Please avoid running ``setup.py`` directly.
+[5.049s]         Instead, use pypa/build, pypa/installer or other
+[5.054s]         standards-based tools.
+[5.055s] 
+[5.055s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[5.055s]         ********************************************************************************
+[5.056s] 
+[5.056s] !!
+[5.057s]   self.initialize_options()
+[5.072s] running install_lib
+[5.179s] byte-compiling /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/get_object_range.py to get_object_range.cpython-310.pyc
+[5.182s]   File "/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/get_object_range.py", line 66
+[5.183s]     if count 
+[5.183s]              ^
+[5.183s] SyntaxError: expected ':'
+[5.184s] 
+[5.184s] running install_data
+[5.266s] running install_egg_info
+[5.370s] removing '/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object-0.0.0-py3.10.egg-info' (and everything under it)
+[5.371s] Copying ../build/team13_chase_object/team13_chase_object.egg-info to /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object-0.0.0-py3.10.egg-info
+[5.380s] running install_scripts
+[6.260s] Installing chase_object script to /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/team13_chase_object
+[6.264s] Installing detect_object script to /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/team13_chase_object
+[6.264s] Installing get_object_range script to /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/team13_chase_object
+[6.266s] writing list of installed files to '/home/burger/CS-7785/lab_3/build/team13_chase_object/install.log'
+[6.503s] Invoked command in '/home/burger/CS-7785/lab_3/team13_chase_object' returned '0': PYTHONPATH=/home/burger/CS-7785/lab_3/build/team13_chase_object/prefix_override:/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/team13_chase_object build --build-base /home/burger/CS-7785/lab_3/build/team13_chase_object/build install --record /home/burger/CS-7785/lab_3/build/team13_chase_object/install.log --single-version-externally-managed

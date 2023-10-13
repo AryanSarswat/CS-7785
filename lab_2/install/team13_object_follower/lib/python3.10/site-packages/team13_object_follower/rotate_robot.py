@@ -5,6 +5,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage
 from rclpy.qos import QoSProfile, QoSDurabilityPolicy, QoSReliabilityPolicy, QoSHistoryPolicy
 from std_msgs.msg import String
+from geometry_msgs.msg import Twist, Vector3
 
 import sys
 
@@ -39,32 +40,40 @@ class Rotate_Robot(Node):
         x, y = coord.split(',')
         x, y = int(x), int(y)
         
+        threshold = 20
+        
         magnitude = abs(x - self.center[0])
-        if x > self.center[0]:
-            self.rotate_right(magnitude)
-        elif x < self.center[0]:
-            self.rotate_left(magnitude)
+        scaled_magnitude = magnitude / self.resolution[0]
+        if x > self.center[0] and magnitude > threshold:
+            self.rotate_right(scaled_magnitude)
+        elif x < self.center[0] and magnitude > threshold:
+            self.rotate_left(scaled_magnitude)
         else:
-            pass
+            self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=0.0)))
+        
+        self._user_input =  cv2.waitKey(1)
+        if self._user_input == ord('q'):
+            self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=0.0)))
+            raise SystemExit
         
     def rotate_left(self, magnitude):
-        if magnitude > 100:
-            angle = 0.5
-        elif magnitude > 50:
-            angle = 0.25
-        else:
-            angle = 0.1
-        self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=angle)))
+        magnitude = float(magnitude)
+        self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=magnitude)))
         self.cmd_publisher.publish(String(data='rotate_left'))
     
     def rotate_right(self, magnitude):
-        if magnitude > 100:
-            angle = 0.5
-        elif magnitude > 50:
-            angle = 0.25
-        else:
-            angle = 0.1
-        self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=-angle)))
+        magnitude = float(magnitude)
+        self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=-magnitude)))
         self.cmd_publisher.publish(String(data='rotate_right'))
         
-        
+def main():
+    rclpy.init()
+    rotate_robot = Rotate_Robot()
+    
+    try:
+        rclpy.spin(rotate_robot)
+    except SystemExit:
+        rclpy.logging.get_logger("Rotate Object node...").info("Shutting Down")
+    
+    rotate_robot.destroy_node()
+    rclpy.shutdown()

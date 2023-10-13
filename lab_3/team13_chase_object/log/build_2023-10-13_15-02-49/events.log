@@ -1,0 +1,120 @@
+[0.000000] (-) TimerEvent: {}
+[0.009225] (team13_chase_object) JobQueued: {'identifier': 'team13_chase_object', 'dependencies': OrderedDict()}
+[0.009465] (team13_chase_object) JobStarted: {'identifier': 'team13_chase_object'}
+[0.107313] (-) TimerEvent: {}
+[0.210801] (-) TimerEvent: {}
+[0.313268] (-) TimerEvent: {}
+[0.416108] (-) TimerEvent: {}
+[0.518558] (-) TimerEvent: {}
+[0.621368] (-) TimerEvent: {}
+[0.724017] (-) TimerEvent: {}
+[0.824808] (-) TimerEvent: {}
+[0.925570] (-) TimerEvent: {}
+[1.027582] (-) TimerEvent: {}
+[1.131294] (-) TimerEvent: {}
+[1.236305] (-) TimerEvent: {}
+[1.338812] (-) TimerEvent: {}
+[1.442034] (-) TimerEvent: {}
+[1.544258] (-) TimerEvent: {}
+[1.645105] (-) TimerEvent: {}
+[1.745864] (-) TimerEvent: {}
+[1.846719] (-) TimerEvent: {}
+[1.948696] (-) TimerEvent: {}
+[2.050504] (-) TimerEvent: {}
+[2.152261] (-) TimerEvent: {}
+[2.253000] (-) TimerEvent: {}
+[2.353750] (-) TimerEvent: {}
+[2.455803] (-) TimerEvent: {}
+[2.558013] (-) TimerEvent: {}
+[2.659957] (-) TimerEvent: {}
+[2.762172] (-) TimerEvent: {}
+[2.864169] (-) TimerEvent: {}
+[2.966101] (-) TimerEvent: {}
+[3.071680] (-) TimerEvent: {}
+[3.173654] (-) TimerEvent: {}
+[3.275589] (-) TimerEvent: {}
+[3.377513] (-) TimerEvent: {}
+[3.479767] (-) TimerEvent: {}
+[3.581759] (-) TimerEvent: {}
+[3.683887] (-) TimerEvent: {}
+[3.786006] (-) TimerEvent: {}
+[3.887601] (-) TimerEvent: {}
+[3.989654] (-) TimerEvent: {}
+[4.091173] (-) TimerEvent: {}
+[4.193804] (-) TimerEvent: {}
+[4.301849] (-) TimerEvent: {}
+[4.407299] (-) TimerEvent: {}
+[4.416510] (team13_chase_object) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', 'build/team13_chase_object', 'build', '--build-base', '/home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/build', 'install', '--record', '/home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/install.log', '--single-version-externally-managed'], 'cwd': '/home/burger/CS-7785/lab_3/team13_chase_object', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'burger', 'SSH_CLIENT': '192.168.1.218 59748 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/burger/turtlebot3_ws/install/v4l2_camera/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/burger', 'OLDPWD': '/home/burger/CS-7785/lab_3', 'SSH_TTY': '/dev/pts/3', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/burger/CS-7785/lab_3/team13_chase_object/install:/home/burger/turtlebot3_ws/install:/home/burger/CS-7785/lab_3/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'burger', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/burger/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'ROS_DOMAIN_ID': '54', 'AMENT_PREFIX_PATH': '/home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object:/home/burger/CS-7785/lab_3/install/team13_chase_object:/home/burger/turtlebot3_ws/install/v4l2_camera:/home/burger/turtlebot3_ws/install/turtlebot3:/home/burger/turtlebot3_ws/install/turtlebot3_teleop:/home/burger/turtlebot3_ws/install/turtlebot3_bringup:/home/burger/turtlebot3_ws/install/turtlebot3_node:/home/burger/turtlebot3_ws/install/turtlebot3_example:/home/burger/turtlebot3_ws/install/turtlebot3_description:/home/burger/turtlebot3_ws/install/ld08_driver:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.1.218 59748 192.168.1.218 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/prefix_override:/home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages:/home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages:/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:/home/burger/turtlebot3_ws/build/turtlebot3_teleop:/home/burger/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages:/home/burger/turtlebot3_ws/build/turtlebot3_example:/home/burger/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/burger/turtlebot3_ws/install/v4l2_camera:/home/burger/turtlebot3_ws/install/turtlebot3:/home/burger/turtlebot3_ws/install/turtlebot3_bringup:/home/burger/turtlebot3_ws/install/turtlebot3_node:/home/burger/turtlebot3_ws/install/turtlebot3_description:/home/burger/turtlebot3_ws/install/ld08_driver'}, 'shell': False}
+[4.507517] (-) TimerEvent: {}
+[4.608557] (-) TimerEvent: {}
+[4.712225] (-) TimerEvent: {}
+[4.815716] (-) TimerEvent: {}
+[4.920763] (-) TimerEvent: {}
+[5.024108] (-) TimerEvent: {}
+[5.125571] (-) TimerEvent: {}
+[5.227315] (-) TimerEvent: {}
+[5.328184] (-) TimerEvent: {}
+[5.428996] (-) TimerEvent: {}
+[5.531255] (-) TimerEvent: {}
+[5.631972] (-) TimerEvent: {}
+[5.720950] (team13_chase_object) StdoutLine: {'line': b'running egg_info\n'}
+[5.732154] (-) TimerEvent: {}
+[5.810921] (team13_chase_object) StdoutLine: {'line': b'writing build/team13_chase_object/team13_chase_object.egg-info/PKG-INFO\n'}
+[5.818349] (team13_chase_object) StdoutLine: {'line': b'writing dependency_links to build/team13_chase_object/team13_chase_object.egg-info/dependency_links.txt\n'}
+[5.823316] (team13_chase_object) StdoutLine: {'line': b'writing entry points to build/team13_chase_object/team13_chase_object.egg-info/entry_points.txt\n'}
+[5.827487] (team13_chase_object) StdoutLine: {'line': b'writing requirements to build/team13_chase_object/team13_chase_object.egg-info/requires.txt\n'}
+[5.829315] (team13_chase_object) StdoutLine: {'line': b'writing top-level names to build/team13_chase_object/team13_chase_object.egg-info/top_level.txt\n'}
+[5.832369] (-) TimerEvent: {}
+[5.933347] (-) TimerEvent: {}
+[5.992399] (team13_chase_object) StdoutLine: {'line': b"reading manifest file 'build/team13_chase_object/team13_chase_object.egg-info/SOURCES.txt'\n"}
+[5.998501] (team13_chase_object) StdoutLine: {'line': b"writing manifest file 'build/team13_chase_object/team13_chase_object.egg-info/SOURCES.txt'\n"}
+[6.000817] (team13_chase_object) StdoutLine: {'line': b'running build\n'}
+[6.002525] (team13_chase_object) StdoutLine: {'line': b'running build_py\n'}
+[6.004767] (team13_chase_object) StdoutLine: {'line': b'copying team13_chase_object/chase_object.py -> /home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/build/lib/team13_chase_object\n'}
+[6.007835] (team13_chase_object) StdoutLine: {'line': b'copying team13_chase_object/get_object_range.py -> /home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/build/lib/team13_chase_object\n'}
+[6.010401] (team13_chase_object) StdoutLine: {'line': b'running install\n'}
+[6.012780] (team13_chase_object) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n'}
+[6.013524] (team13_chase_object) StderrLine: {'line': b'!!\n'}
+[6.013914] (team13_chase_object) StderrLine: {'line': b'\n'}
+[6.014431] (team13_chase_object) StderrLine: {'line': b'        ********************************************************************************\n'}
+[6.015066] (team13_chase_object) StderrLine: {'line': b'        Please avoid running ``setup.py`` directly.\n'}
+[6.015636] (team13_chase_object) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[6.016066] (team13_chase_object) StderrLine: {'line': b'        standards-based tools.\n'}
+[6.016465] (team13_chase_object) StderrLine: {'line': b'\n'}
+[6.016859] (team13_chase_object) StderrLine: {'line': b'        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.\n'}
+[6.017297] (team13_chase_object) StderrLine: {'line': b'        ********************************************************************************\n'}
+[6.017663] (team13_chase_object) StderrLine: {'line': b'\n'}
+[6.018122] (team13_chase_object) StderrLine: {'line': b'!!\n'}
+[6.018626] (team13_chase_object) StderrLine: {'line': b'  self.initialize_options()\n'}
+[6.033538] (-) TimerEvent: {}
+[6.042374] (team13_chase_object) StdoutLine: {'line': b'running install_lib\n'}
+[6.114978] (team13_chase_object) StdoutLine: {'line': b'copying /home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/build/lib/team13_chase_object/chase_object.py -> /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object\n'}
+[6.117577] (team13_chase_object) StdoutLine: {'line': b'copying /home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/build/lib/team13_chase_object/get_object_range.py -> /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object\n'}
+[6.124041] (team13_chase_object) StdoutLine: {'line': b'byte-compiling /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/chase_object.py to chase_object.cpython-310.pyc\n'}
+[6.128800] (team13_chase_object) StdoutLine: {'line': b'byte-compiling /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/__init__.py to __init__.cpython-310.pyc\n'}
+[6.131502] (team13_chase_object) StdoutLine: {'line': b'byte-compiling /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object/get_object_range.py to get_object_range.cpython-310.pyc\n'}
+[6.133770] (-) TimerEvent: {}
+[6.136412] (team13_chase_object) StdoutLine: {'line': b'running install_data\n'}
+[6.218978] (team13_chase_object) StdoutLine: {'line': b'running install_egg_info\n'}
+[6.234259] (-) TimerEvent: {}
+[6.301188] (team13_chase_object) StdoutLine: {'line': b"removing '/home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[6.303460] (team13_chase_object) StdoutLine: {'line': b'Copying build/team13_chase_object/team13_chase_object.egg-info to /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/python3.10/site-packages/team13_chase_object-0.0.0-py3.10.egg-info\n'}
+[6.310618] (team13_chase_object) StdoutLine: {'line': b'running install_scripts\n'}
+[6.334485] (-) TimerEvent: {}
+[6.435284] (-) TimerEvent: {}
+[6.536197] (-) TimerEvent: {}
+[6.636966] (-) TimerEvent: {}
+[6.739295] (-) TimerEvent: {}
+[6.841678] (-) TimerEvent: {}
+[6.944524] (-) TimerEvent: {}
+[7.047032] (-) TimerEvent: {}
+[7.125713] (team13_chase_object) StdoutLine: {'line': b'Installing chase_object script to /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/team13_chase_object\n'}
+[7.133453] (team13_chase_object) StdoutLine: {'line': b'Installing detect_object script to /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/team13_chase_object\n'}
+[7.134845] (team13_chase_object) StdoutLine: {'line': b'Installing get_object_range script to /home/burger/CS-7785/lab_3/team13_chase_object/install/team13_chase_object/lib/team13_chase_object\n'}
+[7.136504] (team13_chase_object) StdoutLine: {'line': b"writing list of installed files to '/home/burger/CS-7785/lab_3/team13_chase_object/build/team13_chase_object/install.log'\n"}
+[7.147263] (-) TimerEvent: {}
+[7.249251] (-) TimerEvent: {}
+[7.344951] (team13_chase_object) CommandEnded: {'returncode': 0}
+[7.350813] (-) TimerEvent: {}
+[7.430005] (team13_chase_object) JobEnded: {'identifier': 'team13_chase_object', 'rc': 0}
+[7.437791] (-) EventReactorShutdown: {}

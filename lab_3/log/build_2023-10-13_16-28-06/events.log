@@ -1,0 +1,71 @@
+[0.000000] (-) TimerEvent: {}
+[0.001905] (team13_chase_object) JobQueued: {'identifier': 'team13_chase_object', 'dependencies': OrderedDict()}
+[0.002576] (team13_chase_object) JobStarted: {'identifier': 'team13_chase_object'}
+[0.099173] (-) TimerEvent: {}
+[0.199816] (-) TimerEvent: {}
+[0.301063] (-) TimerEvent: {}
+[0.403129] (-) TimerEvent: {}
+[0.503846] (-) TimerEvent: {}
+[0.604530] (-) TimerEvent: {}
+[0.705222] (-) TimerEvent: {}
+[0.805892] (-) TimerEvent: {}
+[0.906764] (-) TimerEvent: {}
+[1.007841] (-) TimerEvent: {}
+[1.108928] (-) TimerEvent: {}
+[1.210972] (-) TimerEvent: {}
+[1.311774] (-) TimerEvent: {}
+[1.421035] (-) TimerEvent: {}
+[1.522402] (-) TimerEvent: {}
+[1.623281] (-) TimerEvent: {}
+[1.724047] (-) TimerEvent: {}
+[1.824846] (-) TimerEvent: {}
+[1.926169] (-) TimerEvent: {}
+[2.027009] (-) TimerEvent: {}
+[2.128306] (-) TimerEvent: {}
+[2.228988] (-) TimerEvent: {}
+[2.329711] (-) TimerEvent: {}
+[2.430940] (-) TimerEvent: {}
+[2.531654] (-) TimerEvent: {}
+[2.632528] (-) TimerEvent: {}
+[2.734093] (-) TimerEvent: {}
+[2.835523] (-) TimerEvent: {}
+[2.937756] (-) TimerEvent: {}
+[3.039439] (-) TimerEvent: {}
+[3.140820] (-) TimerEvent: {}
+[3.242107] (-) TimerEvent: {}
+[3.343197] (-) TimerEvent: {}
+[3.444540] (-) TimerEvent: {}
+[3.547584] (team13_chase_object) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/team13_chase_object', 'build', '--build-base', '/home/burger/CS-7785/lab_3/build/team13_chase_object/build', 'install', '--record', '/home/burger/CS-7785/lab_3/build/team13_chase_object/install.log', '--single-version-externally-managed'], 'cwd': '/home/burger/CS-7785/lab_3/team13_chase_object', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'burger', 'SSH_CLIENT': '192.168.1.217 60644 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/burger/turtlebot3_ws/install/v4l2_camera/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/burger', 'OLDPWD': '/home/burger/CS-7785', 'SSH_TTY': '/dev/pts/2', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/burger/CS-7785/lab_3/install:/home/burger/turtlebot3_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'burger', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '16', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/burger/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'ROS_DOMAIN_ID': '54', 'AMENT_PREFIX_PATH': '/home/burger/CS-7785/lab_3/install/team13_chase_object:/home/burger/turtlebot3_ws/install/v4l2_camera:/home/burger/turtlebot3_ws/install/turtlebot3:/home/burger/turtlebot3_ws/install/turtlebot3_teleop:/home/burger/turtlebot3_ws/install/turtlebot3_bringup:/home/burger/turtlebot3_ws/install/turtlebot3_node:/home/burger/turtlebot3_ws/install/turtlebot3_example:/home/burger/turtlebot3_ws/install/turtlebot3_description:/home/burger/turtlebot3_ws/install/ld08_driver:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/burger/CS-7785/lab_3/build/team13_chase_object', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.1.217 60644 192.168.1.218 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/burger/CS-7785/lab_3/build/team13_chase_object/prefix_override:/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:/home/burger/turtlebot3_ws/build/turtlebot3_teleop:/home/burger/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages:/home/burger/turtlebot3_ws/build/turtlebot3_example:/home/burger/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/burger/turtlebot3_ws/install/v4l2_camera:/home/burger/turtlebot3_ws/install/turtlebot3:/home/burger/turtlebot3_ws/install/turtlebot3_bringup:/home/burger/turtlebot3_ws/install/turtlebot3_node:/home/burger/turtlebot3_ws/install/turtlebot3_description:/home/burger/turtlebot3_ws/install/ld08_driver'}, 'shell': False}
+[3.552336] (-) TimerEvent: {}
+[3.653282] (-) TimerEvent: {}
+[3.754281] (-) TimerEvent: {}
+[3.856458] (-) TimerEvent: {}
+[3.878794] (team13_chase_object) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[3.881347] (team13_chase_object) StderrLine: {'line': b'  File "/home/burger/CS-7785/lab_3/team13_chase_object/setup.py", line 1, in <module>\n'}
+[3.881753] (team13_chase_object) StderrLine: {'line': b'    from setuptools import find_packages, setup\n'}
+[3.882153] (team13_chase_object) StderrLine: {'line': b'  File "/usr/local/lib/python3.10/dist-packages/setuptools/__init__.py", line 15, in <module>\n'}
+[3.882722] (team13_chase_object) StderrLine: {'line': b'    import setuptools.version\n'}
+[3.883058] (team13_chase_object) StderrLine: {'line': b'  File "/usr/local/lib/python3.10/dist-packages/setuptools/version.py", line 1, in <module>\n'}
+[3.883497] (team13_chase_object) StderrLine: {'line': b'    from ._importlib import metadata\n'}
+[3.883976] (team13_chase_object) StderrLine: {'line': b'  File "/usr/local/lib/python3.10/dist-packages/setuptools/_importlib.py", line 45, in <module>\n'}
+[3.884887] (team13_chase_object) StderrLine: {'line': b'    import importlib.metadata as metadata  # noqa: F401\n'}
+[3.885655] (team13_chase_object) StderrLine: {'line': b'  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 17, in <module>\n'}
+[3.886018] (team13_chase_object) StderrLine: {'line': b'    from . import _adapters, _meta\n'}
+[3.886298] (team13_chase_object) StderrLine: {'line': b'  File "/usr/lib/python3.10/importlib/metadata/_adapters.py", line 3, in <module>\n'}
+[3.887720] (team13_chase_object) StderrLine: {'line': b'    import email.message\n'}
+[3.888454] (team13_chase_object) StderrLine: {'line': b'  File "/usr/lib/python3.10/email/message.py", line 15, in <module>\n'}
+[3.889342] (team13_chase_object) StderrLine: {'line': b'    from email import utils\n'}
+[3.890035] (team13_chase_object) StderrLine: {'line': b'  File "/usr/lib/python3.10/email/utils.py", line 29, in <module>\n'}
+[3.891062] (team13_chase_object) StderrLine: {'line': b'    import socket\n'}
+[3.891531] (team13_chase_object) StderrLine: {'line': b'  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load\n'}
+[3.892065] (team13_chase_object) StderrLine: {'line': b'  File "<frozen importlib._bootstrap>", line 1002, in _find_and_load_unlocked\n'}
+[3.893209] (team13_chase_object) StderrLine: {'line': b'  File "<frozen importlib._bootstrap>", line 945, in _find_spec\n'}
+[3.899968] (team13_chase_object) StderrLine: {'line': b'  File "<frozen importlib._bootstrap_external>", line 1439, in find_spec\n'}
+[3.901717] (team13_chase_object) StderrLine: {'line': b'  File "<frozen importlib._bootstrap_external>", line 1411, in _get_spec\n'}
+[3.903489] (team13_chase_object) StderrLine: {'line': b'  File "<frozen importlib._bootstrap_external>", line 1544, in find_spec\n'}
+[3.904756] (team13_chase_object) StderrLine: {'line': b'  File "<frozen importlib._bootstrap_external>", line 147, in _path_stat\n'}
+[3.905836] (team13_chase_object) StderrLine: {'line': b'KeyboardInterrupt\n'}
+[3.949862] (team13_chase_object) CommandEnded: {'returncode': -2}
+[3.951396] (team13_chase_object) JobEnded: {'identifier': 'team13_chase_object', 'rc': 'SIGINT'}
+[3.956576] (-) TimerEvent: {}
+[3.963631] (-) EventReactorShutdown: {}

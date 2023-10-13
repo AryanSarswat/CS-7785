@@ -13,13 +13,16 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='aryan',
-    maintainer_email='asarswat8@gatech.edu',
+    maintainer='burger',
+    maintainer_email='aryansarswat2000@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'detect_object = team13_chase_object.detect_object:main',
+            'get_object_range = team13_chase_object.get_object_range:main',
+            'chase_object = team13_chase_object.chase_object:main',            
         ],
     },
 )

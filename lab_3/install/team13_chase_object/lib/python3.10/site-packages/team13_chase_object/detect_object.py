@@ -20,7 +20,7 @@ class DetectObject(Node):
         super().__init__('detect_object_node')
         
         self.ballLower = (0, 150, 0)
-        self.ballUpper = (8, 255, 255)
+        self.ballUpper = (16, 255, 255)
         self.resolution = (340, 240)
         self.center = (self.resolution[0]//2, self.resolution[1]//2)
         
@@ -54,7 +54,7 @@ class DetectObject(Node):
         # Create Publisher
         self.publisher = self.create_publisher(String, 'object_angle_offset', 10)
     
-    def _image_callback(self, CompressedImage):
+    def _image_callback(self, CompressedImage): 
         # The "CompressedImage" is transformed to a color image in BGR space and is store in "_imgBGR"
         self._imgBGR = CvBridge().compressed_imgmsg_to_cv2(CompressedImage, "bgr8")
         if(self._display_image):
@@ -72,12 +72,14 @@ class DetectObject(Node):
                     thickness=2)
                 
                 # Publish degree off center
-                dy = center[0] - self.center[0]
-                dx = center[1] - self.center[1]
-                angle = np.pi/2 - np.arctan2(dy, dx)
+                dx = center[0] - self.center[1]
+                
+                angle_per_pix_x = np.radians(62.2)/self.resolution[0]
+                
+                theta = dx*angle_per_pix_x
                 
                 msg = String()
-                msg.data = str(angle)
+                msg.data = str(theta)
                 self.publisher.publish(msg)
                 self.get_logger().info('Publishing: "%s"' % msg.data)
         
@@ -100,18 +102,22 @@ class DetectObject(Node):
         
     def pre_process(self, input_frame):
         frame = input_frame.copy()
-        
-        # Bi-lateral filter
-        blurred = cv2.bilateralFilter(blurred, 15, 75, 75) 
 
         # Median blur to remove noise
         blurred = cv2.medianBlur(frame, 3)
+        
+        # Bi-lateral filter
+        blurred = cv2.bilateralFilter(blurred, 30, 25, 25) 
+        
+        #cv2.imshow('bilateral', blurred)
         
         # Convert to HSV
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
         
         # Apply Color mask mask
         mask = cv2.inRange(hsv, self.ballLower, self.ballUpper)
+        
+        #cv2.imshow("color threshold", mask)
 
         # Open and close morphological operations
         open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
@@ -123,7 +129,7 @@ class DetectObject(Node):
         # Gaussian blur to smooth edges
         mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
 
-        cv2.imshow('mask', mask)
+        #cv2.imshow('mask', mask)
         
         return mask
     
@@ -157,13 +163,6 @@ class DetectObject(Node):
     def detect_object(self, input_frame):
         pre_processed_frame = self.pre_process(input_frame)
         
-        # Isolate color using mask
-        img = cv2.bitwise_and(input_frame, pre_processed_frame)
-        
-        # Print average color
-        average_color = np.average(img, axis=0)
-        print(f"Average Color: {average_color}")
-        
         center, radius = self.get_contours(pre_processed_frame)
         
         return center, radius, pre_processed_frame
@@ -178,9 +177,10 @@ def main():
     except SystemExit:
         rclpy.logging.get_logger("Object Detector Node Info...").info("Shutting Down")
     
-    detect_object.destroy_node()
+    object_detector.destroy_node()
     rclpy.shutdown()
     
     
 if __name__ == '__main__':
     main()
+

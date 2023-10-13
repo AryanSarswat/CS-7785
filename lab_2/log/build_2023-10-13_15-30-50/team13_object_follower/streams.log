@@ -1,0 +1,38 @@
+[3.457s] Invoking command in '/home/burger/CS-7785/lab_2/team13_object_follower': PYTHONPATH=/home/burger/CS-7785/lab_2/build/team13_object_follower/prefix_override:/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/team13_object_follower build --build-base /home/burger/CS-7785/lab_2/build/team13_object_follower/build install --record /home/burger/CS-7785/lab_2/build/team13_object_follower/install.log --single-version-externally-managed
+[4.485s] running egg_info
+[4.546s] writing ../build/team13_object_follower/team13_object_follower.egg-info/PKG-INFO
+[4.549s] writing dependency_links to ../build/team13_object_follower/team13_object_follower.egg-info/dependency_links.txt
+[4.549s] writing entry points to ../build/team13_object_follower/team13_object_follower.egg-info/entry_points.txt
+[4.553s] writing requirements to ../build/team13_object_follower/team13_object_follower.egg-info/requires.txt
+[4.553s] writing top-level names to ../build/team13_object_follower/team13_object_follower.egg-info/top_level.txt
+[4.689s] reading manifest file '../build/team13_object_follower/team13_object_follower.egg-info/SOURCES.txt'
+[4.693s] writing manifest file '../build/team13_object_follower/team13_object_follower.egg-info/SOURCES.txt'
+[4.697s] running build
+[4.697s] running build_py
+[4.699s] copying team13_object_follower/find_object.py -> /home/burger/CS-7785/lab_2/build/team13_object_follower/build/lib/team13_object_follower
+[4.700s] running install
+[4.700s] /usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[4.701s] !!
+[4.701s] 
+[4.702s]         ********************************************************************************
+[4.702s]         Please avoid running ``setup.py`` directly.
+[4.702s]         Instead, use pypa/build, pypa/installer or other
+[4.703s]         standards-based tools.
+[4.703s] 
+[4.703s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[4.704s]         ********************************************************************************
+[4.704s] 
+[4.704s] !!
+[4.704s]   self.initialize_options()
+[4.721s] running install_lib
+[4.783s] copying /home/burger/CS-7785/lab_2/build/team13_object_follower/build/lib/team13_object_follower/find_object.py -> /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower
+[4.787s] byte-compiling /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower/find_object.py to find_object.cpython-310.pyc
+[4.792s] running install_data
+[4.858s] running install_egg_info
+[4.922s] removing '/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info' (and everything under it)
+[4.924s] Copying ../build/team13_object_follower/team13_object_follower.egg-info to /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages/team13_object_follower-0.0.0-py3.10.egg-info
+[4.935s] running install_scripts
+[5.583s] Installing find_object script to /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/team13_object_follower
+[5.584s] Installing rotate_robot script to /home/burger/CS-7785/lab_2/install/team13_object_follower/lib/team13_object_follower
+[5.586s] writing list of installed files to '/home/burger/CS-7785/lab_2/build/team13_object_follower/install.log'
+[5.740s] Invoked command in '/home/burger/CS-7785/lab_2/team13_object_follower' returned '0': PYTHONPATH=/home/burger/CS-7785/lab_2/build/team13_object_follower/prefix_override:/home/burger/CS-7785/lab_2/install/team13_object_follower/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/team13_object_follower build --build-base /home/burger/CS-7785/lab_2/build/team13_object_follower/build install --record /home/burger/CS-7785/lab_2/build/team13_object_follower/install.log --single-version-externally-managed
