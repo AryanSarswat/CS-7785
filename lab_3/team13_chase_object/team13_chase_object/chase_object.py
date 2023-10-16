@@ -21,9 +21,9 @@ class ChaseObject(Node):
         super().__init__('chase_object_node')
         
         # Setup PD Control
-        self.P_K_V = 0.4
+        self.P_K_V = 0.3
         self.P_K_A = 1.5
-        self.D_K_V = 0.4
+        self.D_K_V = 0.3
         self.D_K_A = 1.5
                 
         #Set up QoS Profiles for LIDAR Data
@@ -46,45 +46,49 @@ class ChaseObject(Node):
         self.prev_dist = 0
                 
     def _actuate(self, String):
-        distance, angle = String.data.split(',')
-        distance = float(distance) - 0.55
-        angle = float(angle) / np.pi
-        dt = 1
-        
-        angular_vel, linear_vel = 0, 0
-        if self.prev_ang:
-            angular_vel = (angle - self.prev_ang)/dt
-        if self.prev_dist:
-            linear_vel = (distance - self.prev_dist)/dt
-                
-        # Proportional Control
-        u_angle = float(angle) * self.P_K_A
-        u_dist = distance* self.P_K_V
-        
-        # Derivative Control
-        u_angular_vel = angular_vel * self.D_K_A
-        u_linear_vel = linear_vel * self.D_K_V
-        
-        # Control terms
-        u_angular = u_angle + u_angular_vel
-        u_linear = u_dist + u_linear_vel
-        
-        # Clamping
-        u_angular = np.clip(u_angular, -1.84, 1.84)
-        u_linear = np.clip(u_linear, -0.12,0.12)
-        
-        # Stopping thershold
-        epsilon_v = 0.1
-        if -epsilon_v <= distance < epsilon_v:
+        if String.data == "None":
             u_linear = 0.0
-        
-        epsilon_a = 0.005
-        if -epsilon_a <= angle <= epsilon_a:
             u_angular = 0.0
-        
-        # Update Previous Values
-        self.prev_ang = angle
-        self.prev_dist = distance
+        else:
+            distance, angle = String.data.split(',')
+            distance = float(distance) - 0.55
+            angle = float(angle) / np.pi
+            dt = 1
+            
+            angular_vel, linear_vel = 0, 0
+            if self.prev_ang:
+                angular_vel = (angle - self.prev_ang)/dt
+            if self.prev_dist:
+                linear_vel = (distance - self.prev_dist)/dt
+                    
+            # Proportional Control
+            u_angle = float(angle) * self.P_K_A
+            u_dist = distance* self.P_K_V
+            
+            # Derivative Control
+            u_angular_vel = angular_vel * self.D_K_A
+            u_linear_vel = linear_vel * self.D_K_V
+            
+            # Control terms
+            u_angular = u_angle + u_angular_vel
+            u_linear = u_dist + u_linear_vel
+            
+            # Clamping
+            u_angular = np.clip(u_angular, -2.84, 2.84)
+            u_linear = np.clip(u_linear, -0.22,0.22)
+            
+            # Stopping thershold    
+            epsilon_v = 0.05
+            if -epsilon_v <= distance < epsilon_v:
+                u_linear = 0.0
+            
+            epsilon_a = 0.005
+            if -epsilon_a <= angle <= epsilon_a:
+                u_angular = 0.0
+            
+            # Update Previous Values
+            self.prev_ang = angle
+            self.prev_dist = distance
         
         # Publish Twist Message
         self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))

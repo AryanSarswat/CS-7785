@@ -82,6 +82,11 @@ class DetectObject(Node):
                 msg.data = str(theta)
                 self.publisher.publish(msg)
                 self.get_logger().info('Publishing: "%s"' % msg.data)
+            else:
+                msg = String()
+                msg.data = str(None)
+                self.publisher.publish(msg)
+                self.get_logger().info('Publishing: "%s"' % msg.data)
         
             self.show_image(input_frame)
             
@@ -109,16 +114,12 @@ class DetectObject(Node):
         # Bi-lateral filter
         blurred = cv2.bilateralFilter(blurred, 30, 25, 25) 
         
-        #cv2.imshow('bilateral', blurred)
-        
         # Convert to HSV
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
         
         # Apply Color mask mask
         mask = cv2.inRange(hsv, self.ballLower, self.ballUpper)
         
-        #cv2.imshow("color threshold", mask)
-
         # Open and close morphological operations
         open_struct = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
         close_struct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
@@ -129,8 +130,6 @@ class DetectObject(Node):
         # Gaussian blur to smooth edges
         mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
 
-        cv2.imshow('mask', mask)
-        
         return mask
     
     def get_contours(self, pre_processed_frame):
@@ -163,12 +162,9 @@ class DetectObject(Node):
     def detect_object(self, input_frame):
         pre_processed_frame = self.pre_process(input_frame)
         
-        color_only = cv2.bitwise_and(input_frame, input_frame, mask=pre_processed_frame)
+        #color_only = cv2.bitwise_and(input_frame, input_frame, mask=pre_processed_frame)
         
-        cv2.imshow('masked', color_only)
-        
-        print(cv2.mean(cv2.cvtColor(input_frame, cv2.COLOR_BGR2HSV), mask=pre_processed_frame))
-        
+        #cv2.imshow('masked', color_only)
         
         center, radius = self.get_contours(pre_processed_frame)
         

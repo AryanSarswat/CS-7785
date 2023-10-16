@@ -71,10 +71,14 @@ class RangeDetector(Node):
         
     def _angle_callback(self, msg):
         # Preprocess Angle Data
-        self.last_object_angle = float(msg.data)
-        
-        msg = String()
-        msg.data = f"{self.last_object_dist},{self.last_object_angle}"
+        if msg.data == 'None':
+            msg = String()
+            msg.data = "None"
+        else:
+            self.last_object_angle = float(msg.data)
+            msg = String()
+            msg.data = f"{self.last_object_dist},{self.last_object_angle}"
+            
         self.publisher.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
     
