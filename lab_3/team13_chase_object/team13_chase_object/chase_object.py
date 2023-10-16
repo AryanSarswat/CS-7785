@@ -21,10 +21,10 @@ class ChaseObject(Node):
         super().__init__('chase_object_node')
         
         # Setup PD Control
-        self.P_K_V = 0.3
-        self.P_K_A = 1
-        self.D_K_V = 0.3
-        self.D_K_A = 1
+        self.P_K_V = 0.4
+        self.P_K_A = 1.5
+        self.D_K_V = 0.4
+        self.D_K_A = 1.5
                 
         #Set up QoS Profiles for LIDAR Data
         lidar_qos_profile = QoSProfile(depth=5)
@@ -70,8 +70,8 @@ class ChaseObject(Node):
         u_linear = u_dist + u_linear_vel
         
         # Clamping
-        u_angular = np.clip(u_angular, -2.84, 2.84)
-        u_linear = np.clip(u_linear, -0.22,0.22)
+        u_angular = np.clip(u_angular, -1.84, 1.84)
+        u_linear = np.clip(u_linear, -0.12,0.12)
         
         # Stopping thershold
         epsilon_v = 0.1

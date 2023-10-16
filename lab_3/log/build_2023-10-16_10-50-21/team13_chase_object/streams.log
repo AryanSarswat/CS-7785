@@ -1,0 +1,45 @@
+[3.839s] Invoking command in '/home/burger/CS-7785/lab_3/build/team13_chase_object': PYTHONPATH=/home/burger/CS-7785/lab_3/build/team13_chase_object/prefix_override:/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_3/build/team13_chase_object/build --no-deps install_data
+[5.136s] running develop
+[5.137s] /usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[5.138s] !!
+[5.138s] 
+[5.139s]         ********************************************************************************
+[5.139s]         Please avoid running ``setup.py`` and ``easy_install``.
+[5.139s]         Instead, use pypa/build, pypa/installer or other
+[5.140s]         standards-based tools.
+[5.140s] 
+[5.140s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[5.140s]         ********************************************************************************
+[5.141s] 
+[5.141s] !!
+[5.141s]   easy_install.initialize_options(self)
+[5.257s] /usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[5.257s] !!
+[5.257s] 
+[5.258s]         ********************************************************************************
+[5.258s]         Please avoid running ``setup.py`` directly.
+[5.258s]         Instead, use pypa/build, pypa/installer or other
+[5.259s]         standards-based tools.
+[5.259s] 
+[5.259s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[5.259s]         ********************************************************************************
+[5.260s] 
+[5.260s] !!
+[5.260s]   self.initialize_options()
+[5.976s] running egg_info
+[6.037s] writing team13_chase_object.egg-info/PKG-INFO
+[6.093s] writing dependency_links to team13_chase_object.egg-info/dependency_links.txt
+[6.096s] writing entry points to team13_chase_object.egg-info/entry_points.txt
+[6.097s] writing requirements to team13_chase_object.egg-info/requires.txt
+[6.098s] writing top-level names to team13_chase_object.egg-info/top_level.txt
+[6.219s] reading manifest file 'team13_chase_object.egg-info/SOURCES.txt'
+[6.239s] writing manifest file 'team13_chase_object.egg-info/SOURCES.txt'
+[6.313s] running build_ext
+[6.346s] Creating /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages/team13-chase-object.egg-link (link to .)
+[6.352s] Installing chase_object script to /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/team13_chase_object
+[6.353s] Installing detect_object script to /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/team13_chase_object
+[6.355s] Installing get_object_range script to /home/burger/CS-7785/lab_3/install/team13_chase_object/lib/team13_chase_object
+[6.357s] 
+[6.358s] Installed /home/burger/CS-7785/lab_3/build/team13_chase_object
+[6.358s] running install_data
+[6.512s] Invoked command in '/home/burger/CS-7785/lab_3/build/team13_chase_object' returned '0': PYTHONPATH=/home/burger/CS-7785/lab_3/build/team13_chase_object/prefix_override:/home/burger/CS-7785/lab_3/install/team13_chase_object/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_3/build/team13_chase_object/build --no-deps install_data

@@ -20,7 +20,7 @@ class DetectObject(Node):
         super().__init__('detect_object_node')
         
         self.ballLower = (0, 150, 0)
-        self.ballUpper = (16, 255, 255)
+        self.ballUpper = (55, 255, 255)
         self.resolution = (340, 240)
         self.center = (self.resolution[0]//2, self.resolution[1]//2)
         
@@ -129,7 +129,7 @@ class DetectObject(Node):
         # Gaussian blur to smooth edges
         mask = cv2.GaussianBlur(mask, (3, 3), 10, 2)
 
-        #cv2.imshow('mask', mask)
+        cv2.imshow('mask', mask)
         
         return mask
     
@@ -162,6 +162,13 @@ class DetectObject(Node):
     
     def detect_object(self, input_frame):
         pre_processed_frame = self.pre_process(input_frame)
+        
+        color_only = cv2.bitwise_and(input_frame, input_frame, mask=pre_processed_frame)
+        
+        cv2.imshow('masked', color_only)
+        
+        print(cv2.mean(cv2.cvtColor(input_frame, cv2.COLOR_BGR2HSV), mask=pre_processed_frame))
+        
         
         center, radius = self.get_contours(pre_processed_frame)
         
