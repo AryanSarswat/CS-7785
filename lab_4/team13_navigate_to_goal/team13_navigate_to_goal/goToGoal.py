@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-
-
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, QoSDurabilityPolicy, QoSReliabilityPolicy, QoSHistoryPolicy
@@ -40,9 +38,16 @@ class State():
         self.last_pos.x = 0.0
         self.last_pos.y = 0.0
         
+        self.goal_state_counter = 0
+        
         
     def update_state(self, distance_to_object, curr_pos, dst_pos):
-        if (distance_to_object <= self.min_safe_dist + self.EPISILON) and self.cur_state != 1:
+        if self.cur_state == 2:
+            # Stay at goal for 10 seconds
+            self.goal_state_counter += 1
+            if goal_state_counter == 100:
+                self.cur_state = 0
+        elif (distance_to_object <= self.min_safe_dist + self.EPISILON) and self.cur_state != 1:
             self.cur_state = 1
             self.distance_travelled = 0
             self.last_pos.x = curr_pos.x
@@ -53,8 +58,10 @@ class State():
             self.logger.info(f"{curr_pos}, {self.last_pos}")
             self.distance_travelled = abs(self.last_pos.x - curr_pos.x) + abs(self.last_pos.y - curr_pos.y)
             self.logger.info(f"Staying in state 1, distance travelled {self.distance_travelled}")
-        elif abs(curr_pos.x - dst_pos.x) + abs(curr_pos.x- dst_pos.y) <= self.goal_err:
+        elif abs(curr_pos.x - dst_pos.x) + abs(curr_pos.x- dst_pos.y) <= self.goal_err and self.cur_state != 2:
+            # Reached goal
             self.cur_state = 2
+            self.goal_state_counter = 0
             self.logger.info(f"Switching to state 2")
         elif self.cur_state != 0:
             self.cur_state = 0
@@ -110,7 +117,13 @@ class GoToGoal(Node):
             goal.y = y
             self.goals.append(goal)
             
-        print(f"Goals : {self.goals}")        
+        print(f"Goals : {self.goals}")   
+        
+        self.proportional_velocity_gain = 0.3
+        self.proportional_angular_gain = 1.5
+        
+        self._vel_publisher = self.create_publisher(Twist, '/cmd_vel', 5)
+        
     
     def dist_callback(self, msg):
         dst = float(msg.data)
@@ -154,13 +167,31 @@ class GoToGoal(Node):
     def update_vel(self):
         if self.state_machine.get_state() == 0:
             # Drive to goal
-            pass
+            x_g = self.goal[0].x
+            y_g = self.goal[0].y
+            
+            mag = abs(self.globalPos.x - x_g) + abs(self.globalPos.y - y_g)
+            ang = np.arctan2(self.globalPos.y - y_g, self.globalPos.x - x_g)
+            
+            u_linear = self.proportional_velocity_gain * mag
+            u_angular = self.proportional_angular_gain * ang
+            
+            self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
+            self.get_logger().info(f"Publishing l_v : {u_linear} and a_v : {u_angular}")
+            
         elif self.state_machine.get_state() == 1:
             # Obstacle Avoidance
             pass
         elif self.state_machine.get_state() == 2:
             # Reached Goals state
-            pass
+            if sabs(self.globalPos.x - self.goals[0].x) + abs(self.globalPos.y - self.goals[0].y) <= 0.1:
+                goal_reached = self.goals.pop(0)
+                self.get_logger().info(f"Reached goal {goal_reached}")
+            
+            if len(self.goals) == 0:
+                self.get_logger().info(f"Reached all goals")
+                self._vel_publisher.publish(Twist(linear=Vector3(x=0), angular=Vector3(z=0)))
+                raise KeyboardInterrupt
         else:
             self.get_logger.info(f"Invalid state of {self.state.get_state()} encountered")          
 
