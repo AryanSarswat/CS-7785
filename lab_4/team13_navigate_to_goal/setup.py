@@ -20,6 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'print_fixed_odometry = team13_navigate_to_goal.print_fixed_odometry:main',
+            'getObjectRange = team13_navigate_to_goal.getObjectRange:main',
+            'goToGoal = team13_navigate_to_goal.goToGoal:main',   
         ],
     },
 )
