@@ -34,54 +34,28 @@ class RangeDetector(Node):
                 lidar_qos_profile)
         self.lidar_subscriber # Prevents unused variable warning
         
-        self.angle_subscriber = self.create_subscription(
-                String,
-                'object_angle_offset',
-                self._angle_callback,
-                10)
-        
-        self.publisher = self.create_publisher(String, 'distance_angle', 10)
+        self.publisher = self.create_publisher(String, 'distance', 10)
                 
     def _lidar_callback(self, laserScan):
         dst_values =  laserScan.ranges
         
-        phi = self.last_object_angle
-        
-        if phi < 0:
-            phi += 2*np.pi
-        
-        idx = int(((phi- laserScan.angle_min)) // (laserScan.angle_increment))
+        idx = 0
         
         if 0 <= idx < len(dst_values):
             total = []
-            for idx in range(idx - 10, idx + 10, 1):
+            for idx in range(idx - 5, idx + 5, 1):
                 if idx >= len(dst_values):
                     idx = idx % len(dst_values)
                 
                 if not np.isnan(dst_values[idx]):
                     total.append(dst_values[idx])
             
-            if len(total) == 0:
-                dst = 0.55
-            else:
+            if len(total) != 0:
                 dst = min(total)
-                
-            self.last_object_dist = dst
-            
-        
-    def _angle_callback(self, msg):
-        # Preprocess Angle Data
-        if msg.data == 'None':
-            msg = String()
-            msg.data = "None"
-        else:
-            self.last_object_angle = float(msg.data)
-            msg = String()
-            msg.data = f"{self.last_object_dist},{self.last_object_angle}"
-            
-        self.publisher.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
-    
+                msg = String()  
+                msg.data = f"{dst}"
+                self.publisher.publish(msg)
+                self.get_logger().info(f"Distance to Object {dst}")
     
 def main():
     rclpy.init()

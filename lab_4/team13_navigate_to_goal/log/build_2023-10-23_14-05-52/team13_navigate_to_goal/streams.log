@@ -1,0 +1,52 @@
+[3.778s] Invoking command in '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal': PYTHONPATH=/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/prefix_override:/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/build --no-deps install_data
+[5.121s] running develop
+[5.123s] /usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[5.124s] !!
+[5.124s] 
+[5.124s]         ********************************************************************************
+[5.125s]         Please avoid running ``setup.py`` and ``easy_install``.
+[5.125s]         Instead, use pypa/build, pypa/installer or other
+[5.125s]         standards-based tools.
+[5.126s] 
+[5.126s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[5.126s]         ********************************************************************************
+[5.127s] 
+[5.127s] !!
+[5.127s]   easy_install.initialize_options(self)
+[5.247s] /usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[5.248s] !!
+[5.248s] 
+[5.248s]         ********************************************************************************
+[5.249s]         Please avoid running ``setup.py`` directly.
+[5.249s]         Instead, use pypa/build, pypa/installer or other
+[5.249s]         standards-based tools.
+[5.249s] 
+[5.250s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[5.250s]         ********************************************************************************
+[5.250s] 
+[5.251s] !!
+[5.251s]   self.initialize_options()
+[5.991s] running egg_info
+[5.992s] creating team13_navigate_to_goal.egg-info
+[6.047s] writing team13_navigate_to_goal.egg-info/PKG-INFO
+[6.049s] writing dependency_links to team13_navigate_to_goal.egg-info/dependency_links.txt
+[6.050s] writing entry points to team13_navigate_to_goal.egg-info/entry_points.txt
+[6.053s] writing requirements to team13_navigate_to_goal.egg-info/requires.txt
+[6.053s] writing top-level names to team13_navigate_to_goal.egg-info/top_level.txt
+[6.053s] writing manifest file 'team13_navigate_to_goal.egg-info/SOURCES.txt'
+[6.176s] reading manifest file 'team13_navigate_to_goal.egg-info/SOURCES.txt'
+[6.179s] writing manifest file 'team13_navigate_to_goal.egg-info/SOURCES.txt'
+[6.245s] running build_ext
+[6.249s] Creating /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/python3.10/site-packages/team13-navigate-to-goal.egg-link (link to .)
+[6.254s] Installing getObjectRange script to /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/team13_navigate_to_goal
+[6.255s] Installing goToGoal script to /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/team13_navigate_to_goal
+[6.257s] Installing print_fixed_odometry script to /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/team13_navigate_to_goal
+[6.257s] 
+[6.258s] Installed /home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal
+[6.258s] running install_data
+[6.259s] creating /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/ament_index
+[6.259s] creating /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/ament_index/resource_index
+[6.260s] creating /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/ament_index/resource_index/packages
+[6.260s] copying resource/team13_navigate_to_goal -> /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/ament_index/resource_index/packages
+[6.260s] copying package.xml -> /home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal
+[6.421s] Invoked command in '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal' returned '0': PYTHONPATH=/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/prefix_override:/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/build --no-deps install_data

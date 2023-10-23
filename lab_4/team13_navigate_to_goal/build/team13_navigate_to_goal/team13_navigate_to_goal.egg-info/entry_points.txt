@@ -1,0 +1,4 @@
+[console_scripts]
+getObjectRange = team13_navigate_to_goal.getObjectRange:main
+goToGoal = team13_navigate_to_goal.goToGoal:main
+print_fixed_odometry = team13_navigate_to_goal.print_fixed_odometry:main

@@ -1,0 +1,96 @@
+[1.747s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink']
+[1.748s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffbcb235b0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffbcd351b0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffbcd351b0>>)
+[2.027s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[2.028s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[2.028s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[2.028s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[2.028s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[2.029s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[2.029s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/burger/CS-7785/lab_4/team13_navigate_to_goal'
+[2.030s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[2.030s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[2.031s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[2.031s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[2.031s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[2.031s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[2.032s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[2.032s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[2.032s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[2.127s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_python' and name 'team13_navigate_to_goal'
+[2.127s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[2.127s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[2.127s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[2.127s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[2.127s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[2.253s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[2.253s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[2.276s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 8 installed packages in /home/burger/turtlebot3_ws/install
+[2.285s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 206 installed packages in /opt/ros/humble
+[2.290s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[2.471s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'cmake_args' from command line to 'None'
+[2.471s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'cmake_target' from command line to 'None'
+[2.471s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.471s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'cmake_clean_cache' from command line to 'False'
+[2.472s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'cmake_clean_first' from command line to 'False'
+[2.472s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'cmake_force_configure' from command line to 'False'
+[2.472s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'ament_cmake_args' from command line to 'None'
+[2.472s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'catkin_cmake_args' from command line to 'None'
+[2.472s] Level 5:colcon.colcon_core.verb:set package 'team13_navigate_to_goal' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.472s] DEBUG:colcon.colcon_core.verb:Building package 'team13_navigate_to_goal' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal', 'merge_install': False, 'path': '/home/burger/CS-7785/lab_4/team13_navigate_to_goal', 'symlink_install': True, 'test_result_base': None}
+[2.475s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[2.487s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[2.488s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/burger/CS-7785/lab_4/team13_navigate_to_goal' with build type 'ament_python'
+[2.489s] Level 1:colcon.colcon_core.shell:create_environment_hook('team13_navigate_to_goal', 'ament_prefix_path')
+[2.526s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.526s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/ament_prefix_path.ps1'
+[2.530s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/ament_prefix_path.dsv'
+[2.536s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/ament_prefix_path.sh'
+[2.546s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.546s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.481s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/burger/CS-7785/lab_4/team13_navigate_to_goal'
+[3.487s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.487s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.267s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal': PYTHONPATH=/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/prefix_override:/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/build --no-deps install_data
+[8.904s] Level 1:colcon.colcon_core.shell:create_environment_hook('team13_navigate_to_goal', 'pythonpath_develop')
+[8.909s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/pythonpath_develop.ps1'
+[8.910s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal' returned '0': PYTHONPATH=/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/prefix_override:/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/build --no-deps install_data
+[8.913s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/pythonpath_develop.dsv'
+[8.914s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/build/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/pythonpath_develop.sh'
+[8.956s] Level 1:colcon.colcon_core.environment:checking '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal' for CMake module files
+[8.959s] Level 1:colcon.colcon_core.environment:checking '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal' for CMake config files
+[8.962s] Level 1:colcon.colcon_core.environment:checking '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib'
+[8.963s] Level 1:colcon.colcon_core.environment:checking '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/bin'
+[8.964s] Level 1:colcon.colcon_core.environment:checking '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/pkgconfig/team13_navigate_to_goal.pc'
+[8.965s] Level 1:colcon.colcon_core.environment:checking '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/lib/python3.10/site-packages'
+[8.966s] Level 1:colcon.colcon_core.shell:create_environment_hook('team13_navigate_to_goal', 'pythonpath')
+[8.971s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/pythonpath.ps1'
+[8.973s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/pythonpath.dsv'
+[8.974s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/hook/pythonpath.sh'
+[8.976s] Level 1:colcon.colcon_core.environment:checking '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/bin'
+[8.977s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(team13_navigate_to_goal)
+[8.982s] INFO:colcon.colcon_core.shell:Creating package script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/package.ps1'
+[9.025s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/package.dsv'
+[9.030s] INFO:colcon.colcon_core.shell:Creating package script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/package.sh'
+[9.033s] INFO:colcon.colcon_core.shell:Creating package script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/package.bash'
+[9.039s] INFO:colcon.colcon_core.shell:Creating package script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/team13_navigate_to_goal/package.zsh'
+[9.045s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/team13_navigate_to_goal/share/colcon-core/packages/team13_navigate_to_goal)
+[9.046s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.047s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.048s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.048s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.074s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[9.075s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.075s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.075s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[9.112s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[9.113s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[9.118s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/local_setup.ps1'
+[9.125s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/_local_setup_util_ps1.py'
+[9.134s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/setup.ps1'
+[9.144s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/local_setup.sh'
+[9.148s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/_local_setup_util_sh.py'
+[9.150s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/setup.sh'
+[9.159s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/local_setup.bash'
+[9.162s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/setup.bash'
+[9.170s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/local_setup.zsh'
+[9.172s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/burger/CS-7785/lab_4/team13_navigate_to_goal/install/setup.zsh'
