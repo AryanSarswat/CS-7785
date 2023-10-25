@@ -14,6 +14,9 @@ import numpy as np
 import cv2
 from cv_bridge import CvBridge
 
+def euclidean_distance(p1, p2):
+    return np.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2)
+
 class State():
     """
     State machine used to determine what command to publish based on sensor data
@@ -45,7 +48,7 @@ class State():
         if self.cur_state == 2:
             # Stay at goal for 10 seconds
             self.goal_state_counter += 1
-            if goal_state_counter == 100:
+            if self.goal_state_counter == 100:
                 self.cur_state = 0
         elif (distance_to_object <= self.min_safe_dist + self.EPISILON) and self.cur_state != 1:
             self.cur_state = 1
@@ -56,9 +59,9 @@ class State():
         elif self.cur_state == 1 and self.distance_travelled <= self.min_distance_travelled:
             # Stay in state 1 and update distance travelled
             self.logger.info(f"{curr_pos}, {self.last_pos}")
-            self.distance_travelled = abs(self.last_pos.x - curr_pos.x) + abs(self.last_pos.y - curr_pos.y)
+            self.distance_travelled = euclidean_distance(curr_pos, self.last_pos)
             self.logger.info(f"Staying in state 1, distance travelled {self.distance_travelled}")
-        elif abs(curr_pos.x - dst_pos.x) + abs(curr_pos.x- dst_pos.y) <= self.goal_err and self.cur_state != 2:
+        elif euclidean_distance(curr_pos, dst_pos) <= self.goal_err and self.cur_state != 2:
             # Reached goal
             self.cur_state = 2
             self.goal_state_counter = 0
@@ -67,7 +70,7 @@ class State():
             self.cur_state = 0
             self.logger.info(f"Switching to state 0")
         else:
-            pass
+            self.logger.info(f"No change in state {self.cur_state}")
             
     def get_state(self):
         return self.cur_state
@@ -170,7 +173,7 @@ class GoToGoal(Node):
             x_g = self.goal[0].x
             y_g = self.goal[0].y
             
-            mag = abs(self.globalPos.x - x_g) + abs(self.globalPos.y - y_g)
+            mag = euclidean_distance(self.globalPos, self.goals[0])
             ang = np.arctan2(self.globalPos.y - y_g, self.globalPos.x - x_g)
             
             u_linear = self.proportional_velocity_gain * mag
@@ -184,7 +187,7 @@ class GoToGoal(Node):
             pass
         elif self.state_machine.get_state() == 2:
             # Reached Goals state
-            if sabs(self.globalPos.x - self.goals[0].x) + abs(self.globalPos.y - self.goals[0].y) <= 0.1:
+            if euclidean_distance(self.globalPos, self.goals[0]) <= self.state_machine.goal_err:
                 goal_reached = self.goals.pop(0)
                 self.get_logger().info(f"Reached goal {goal_reached}")
             
