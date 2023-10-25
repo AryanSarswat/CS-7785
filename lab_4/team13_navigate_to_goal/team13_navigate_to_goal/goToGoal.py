@@ -7,6 +7,8 @@ from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Quaternion
 from geometry_msgs.msg import Point
+from geometry_msgs.msg import Twist, Vector3
+
 
 import sys
 
@@ -26,49 +28,47 @@ class State():
     State 2 : Reached Goal
     
     """
-    def __init__(self, logger):
+    def __init__(self, logger, goals):
         self.logger = logger
         self.cur_state = 0
+        self.goals = goals
     
         self.min_safe_dist = 0.4
         self.EPISILON = 0.1
-        self.goal_err = 0.1
+        self.goal_err = 0.15
         
-        self.distance_travelled = 0
-        self.min_distance_travelled = 0.1
-        
-        self.last_pos = Point()
-        self.last_pos.x = 0.0
-        self.last_pos.y = 0.0
+        self.time_elapsed = 0
+        self.min_time_elasped = 100
         
         self.goal_state_counter = 0
         
         
-    def update_state(self, distance_to_object, curr_pos, dst_pos):
+    def update_state(self, distance_to_object, curr_pos):
+        dst_pos = self.goals[0]
         if self.cur_state == 2:
             # Stay at goal for 10 seconds
             self.goal_state_counter += 1
-            if self.goal_state_counter == 100:
+            if self.goal_state_counter >= 100:
                 self.cur_state = 0
         elif (distance_to_object <= self.min_safe_dist + self.EPISILON) and self.cur_state != 1:
             self.cur_state = 1
-            self.distance_travelled = 0
-            self.last_pos.x = curr_pos.x
-            self.last_pos.y = curr_pos.y
-            self.logger.info(f"Switching to state 1")
-        elif self.cur_state == 1 and self.distance_travelled <= self.min_distance_travelled:
+            self.time_elapsed = 0
+            self.logger.info(f"[State] Switching to state 1")
+        elif self.cur_state == 1 and self.time_elapsed <= self.min_time_elasped:
             # Stay in state 1 and update distance travelled
-            self.logger.info(f"{curr_pos}, {self.last_pos}")
-            self.distance_travelled = euclidean_distance(curr_pos, self.last_pos)
-            self.logger.info(f"Staying in state 1, distance travelled {self.distance_travelled}")
+            self.time_elapsed += 1
+            if self.time_elapsed > self.min_time_elasped:
+                self.cur_state = 0
+            self.logger.info(f"[State] Staying in state 1, time elapsed {self.time_elapsed}")
         elif euclidean_distance(curr_pos, dst_pos) <= self.goal_err and self.cur_state != 2:
             # Reached goal
             self.cur_state = 2
             self.goal_state_counter = 0
-            self.logger.info(f"Switching to state 2")
+            self.goals.pop(0)
+            self.logger.info(f"\n[State] Switching to state 2\n")
         elif self.cur_state != 0:
             self.cur_state = 0
-            self.logger.info(f"Switching to state 0")
+            self.logger.info(f"[State] Switching to state 0")
         else:
             self.logger.info(f"No change in state {self.cur_state}")
             
@@ -79,7 +79,6 @@ class GoToGoal(Node):
     def __init__(self):
         super().__init__('GoToGoal')
         
-        self.state_machine = State(self.get_logger())
         
         # Init Odom to (0,0,0) and initializep position variables
         self.Init = True
@@ -88,6 +87,9 @@ class GoToGoal(Node):
         self.Init_pos.y = 0.0
         self.Init_ang = 0.0
         self.globalPos = Point()
+        self.globalAng = 0.0
+        
+        self.prev_pos = Point()
         
         self.pos_sub = self.create_subscription(
                 Odometry,
@@ -97,6 +99,7 @@ class GoToGoal(Node):
         self.pos_sub # prevent unsued variable warning
         
         self.distance_to_object = float('inf')
+        self.corner_angle = 0.0
         
         self.range_sub = self.create_subscription(
                 String,
@@ -122,16 +125,28 @@ class GoToGoal(Node):
             
         print(f"Goals : {self.goals}")   
         
-        self.proportional_velocity_gain = 0.3
-        self.proportional_angular_gain = 1.5
+        self.state_machine = State(self.get_logger(), self.goals)
+        
+        self.Kp_linear = 0.5
+        self.Kp_angular = 1.0
+        self.Kd_linear = 0.7
+        self.Kd_angular = 0.5
+        
         
         self._vel_publisher = self.create_publisher(Twist, '/cmd_vel', 5)
         
+        self.timer = self.create_timer(0.1, self.timer_callback)
+        
+    
+    def timer_callback(self):
+        self.state_machine.update_state(self.distance_to_object, self.globalPos)
     
     def dist_callback(self, msg):
-        dst = float(msg.data)
+        dst, angle = msg.data.split(",")
+        dst = float(dst)
+        angle = float(angle)
         self.distance_to_object = dst
-        #self.get_logger().info(f"Distance to Object {dst}")
+        self.corner_angle = angle
     
     def odom_callback(self, data):
         self.update_Odometry(data)
@@ -163,37 +178,66 @@ class GoToGoal(Node):
 
         #self.get_logger().info('Transformed global pose is x:{}, y:{}, a:{}'.format(self.globalPos.x,self.globalPos.y,self.globalAng)) 
         
-        self.state_machine.update_state(self.distance_to_object, self.globalPos, self.goals[0])
-        
         self.update_vel()  
 
     def update_vel(self):
         if self.state_machine.get_state() == 0:
             # Drive to goal
-            x_g = self.goal[0].x
-            y_g = self.goal[0].y
+            x_g = self.state_machine.goals[0].x
+            y_g = self.state_machine.goals[0].y
             
             mag = euclidean_distance(self.globalPos, self.goals[0])
-            ang = np.arctan2(self.globalPos.y - y_g, self.globalPos.x - x_g)
+            self.get_logger().info(f"y_diff = {y_g - self.globalPos.y}, x_diff = {x_g - self.globalPos.x}")
             
-            u_linear = self.proportional_velocity_gain * mag
-            u_angular = self.proportional_angular_gain * ang
+            ang = np.arctan2(y_g - self.globalPos.y, x_g - self.globalPos.x)
+            
+            ang -= self.globalAng
+            
+            while ang <= -np.pi:
+                ang += 2*np.pi
+            while ang > np.pi:
+                ang -= 2*np.pi
+            
+            dt = 1
+            linear_vel = euclidean_distance(self.prev_pos, self.globalPos)/dt
+            
+            self.get_logger().info(f"mag = {mag}, ang = {ang}, turtlebot_angle = {self.globalAng}")
+            
+            u_linear = self.Kp_linear * mag + self.Kd_linear * linear_vel
+            u_angular = self.Kp_angular * ang
+
+            u_angular = np.clip(u_angular, -1.5, 1.5)
+            u_linear = np.clip(u_linear, -0.1,0.1)
+            
             
             self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
             self.get_logger().info(f"Publishing l_v : {u_linear} and a_v : {u_angular}")
             
+            self.prev_pos = self.globalPos
+            self.prev_ang = self.globalAng
+            
         elif self.state_machine.get_state() == 1:
             # Obstacle Avoidance
-            pass
+            dst = self.distance_to_object
+            ang = self.corner_angle
+            
+            while ang <= -np.pi:
+                ang += 2*np.pi
+            while ang > np.pi:
+                ang -= 2*np.pi
+            
+            u_linear = 0.05
+            u_angular = self.Kp_angular * ang
+            
+            self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
         elif self.state_machine.get_state() == 2:
-            # Reached Goals state
-            if euclidean_distance(self.globalPos, self.goals[0]) <= self.state_machine.goal_err:
-                goal_reached = self.goals.pop(0)
-                self.get_logger().info(f"Reached goal {goal_reached}")
+            # Near Goal state
+            self._vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=0.0)))
+            self.prev_ang = self.globalAng
             
             if len(self.goals) == 0:
                 self.get_logger().info(f"Reached all goals")
-                self._vel_publisher.publish(Twist(linear=Vector3(x=0), angular=Vector3(z=0)))
+                self._vel_publisher.publish(Twist(  linear=Vector3(x=0), angular=Vector3(z=0)))
                 raise KeyboardInterrupt
         else:
             self.get_logger.info(f"Invalid state of {self.state.get_state()} encountered")          

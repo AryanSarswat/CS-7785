@@ -41,6 +41,8 @@ class RangeDetector(Node):
         
         idx = 0
         
+        min_idx = None
+        
         if 0 <= idx < len(dst_values):
             total = []
             for idx in range(idx - 5, idx + 5, 1):
@@ -50,12 +52,45 @@ class RangeDetector(Node):
                 if not np.isnan(dst_values[idx]):
                     total.append(dst_values[idx])
             
+            total = np.array(total)
+            
             if len(total) != 0:
-                dst = min(total)
-                msg = String()  
-                msg.data = f"{dst}"
+                dst = total.min()
+                min_idx = total.argmin()
+                corner_angle = None
+                angle = 0
+             
+                if dst <= 0.5:
+                    left_idx = min_idx
+                    right_idx = min_idx  
+                    corner_idx = None
+                    while corner_idx == None:
+                        n_left_idx = (left_idx - 1) % len(dst_values)
+                        n_right_idx = (right_idx + 1) % len(dst_values)
+                        
+                        if abs(dst_values[left_idx] - dst_values[n_left_idx]) >= 0.2:
+                            corner_idx = (n_left_idx - 5) % len(dst_values)
+                            break
+                        if abs(dst_values[right_idx] - dst_values[n_right_idx]) >= 0.2:
+                            corner_idx = n_right_idx + 5 % len(dst_values)
+                            break
+                        
+                        left_idx = n_left_idx
+                        right_idx = n_right_idx
+
+                    angle = (min_idx - corner_idx) * laserScan.angle_increment
+                    
+                    if angle > np.pi:
+                        angle = -(angle % np.pi)
+                    
+                msg = String()
+                msg.data = f"{dst},{angle}" 
+                
                 self.publisher.publish(msg)
-                self.get_logger().info(f"Distance to Object {dst}")
+                self.get_logger().info(f"Distance to Object and angle {dst},{angle}")
+            
+                
+        
     
 def main():
     rclpy.init()
