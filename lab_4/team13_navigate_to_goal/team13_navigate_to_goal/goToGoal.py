@@ -33,12 +33,12 @@ class State():
         self.cur_state = 0
         self.goals = goals
     
-        self.min_safe_dist = 0.4
+        self.min_safe_dist = 0.5
         self.EPISILON = 0.1
         self.goal_err = 0.15
         
         self.time_elapsed = 0
-        self.min_time_elasped = 100
+        self.min_time_elasped = 50
         
         self.goal_state_counter = 0
         
@@ -227,6 +227,10 @@ class GoToGoal(Node):
             
             u_angular = np.clip(u_angular, -1.5, 1.5)
             u_linear = np.clip(u_linear, -0.125,0.125)
+            
+            if dst < -0.2:
+                u_angular = -u_angular
+                u_linear = -u_linear
             
             self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
         elif self.state_machine.get_state() == 2:

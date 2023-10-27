@@ -37,8 +37,8 @@ class RangeDetector(Node):
         self.publisher = self.create_publisher(String, 'distance', 10)
                 
     def _lidar_callback(self, laserScan):
-        angle_increment_per_index = laserScan.angle_increment
         dst_values =  laserScan.ranges
+        angle_increment_per_index = laserScan.angle_increment
         
         idx = 0
         
@@ -52,8 +52,6 @@ class RangeDetector(Node):
                 
                 if not np.isnan(dst_values[idx]):
                     total.append(dst_values[idx])
-                else:
-                    dst_values[idx] = dst_values[idx - 1]
             
             total = np.array(total)
             
@@ -62,34 +60,32 @@ class RangeDetector(Node):
                 min_idx = total.argmin()
                 corner_angle = None
                 angle = 0
-             
+                displace = int((5*np.pi/180)/angle_increment_per_index)
                 if dst <= 0.5:
                     left_idx = min_idx
                     right_idx = min_idx  
                     corner_idx = None
-                    displace = ((5/180) * np.pi) / angle_increment_per_index
                     while corner_idx == None:
                         n_left_idx = (left_idx - 1) % len(dst_values)
                         n_right_idx = (right_idx + 1) % len(dst_values)
                         
                         if abs(dst_values[left_idx] - dst_values[n_left_idx]) > 0.5:
-                            # Displace the corner by 5 degrees
                             corner_idx = n_left_idx - displace
                             break
                         if abs(dst_values[right_idx] - dst_values[n_right_idx]) > 0.5:
                             corner_idx = n_right_idx + displace
-                            break
+                            break   
                         
                         left_idx = n_left_idx
                         right_idx = n_right_idx
 
-                    angle = corner_idx * angle_increment_per_index
+                    angle = (corner_idx) * laserScan.angle_increment
                     
                 msg = String()
                 msg.data = f"{dst},{angle}" 
                 
                 self.publisher.publish(msg)
-                self.get_logger().info(f"Distance to Object and angle {dst},{angle}")
+                self.get_logger().info(f"Distance to Object and angle {dst},{angle*360/(2*np.pi)}")
             
                 
         
