@@ -46,7 +46,7 @@ class RangeDetector(Node):
         
         if 0 <= idx < len(dst_values):
             total = []
-            for idx in range(idx - 5, idx + 5, 1):
+            for idx in range(idx - 20, idx + 20, 1):
                 if idx >= len(dst_values):
                     idx = idx % len(dst_values)
                 
@@ -60,27 +60,33 @@ class RangeDetector(Node):
                 min_idx = total.argmin()
                 corner_angle = None
                 angle = 0
-                displace = int((5*np.pi/180)/angle_increment_per_index)
-                if dst <= 0.5:
+                displace = int((15*np.pi/180)/angle_increment_per_index)
+                if dst <= 0.3:
+
                     left_idx = min_idx
                     right_idx = min_idx  
                     corner_idx = None
                     while corner_idx == None:
-                        n_left_idx = (left_idx - 1) % len(dst_values)
-                        n_right_idx = (right_idx + 1) % len(dst_values)
-                        
-                        if abs(dst_values[left_idx] - dst_values[n_left_idx]) > 0.5:
-                            corner_idx = n_left_idx - displace
+                        if right_idx >= len(dst_values):
                             break
-                        if abs(dst_values[right_idx] - dst_values[n_right_idx]) > 0.5:
-                            corner_idx = n_right_idx + displace
+                        n_left_idx = (left_idx - 1) % (len(dst_values))
+                        n_right_idx = (right_idx + 1) % (len(dst_values))
+                        
+                        if abs(dst_values[left_idx] - dst_values[n_left_idx]) > 0.3:
+                            corner_idx = n_left_idx - int(np.arcsin(0.2/dst))
+                            break
+                        if abs(dst_values[right_idx] - dst_values[n_right_idx]) > 0.3:
+                            corner_idx = n_right_idx + int(np.arcsin(0.2/dst))
                             break   
                         
                         left_idx = n_left_idx
                         right_idx = n_right_idx
 
                     angle = (corner_idx) * laserScan.angle_increment
-                    
+                
+                if angle > np.pi:
+                    angle = -(angle % np.pi/2)
+                
                 msg = String()
                 msg.data = f"{dst},{angle}" 
                 

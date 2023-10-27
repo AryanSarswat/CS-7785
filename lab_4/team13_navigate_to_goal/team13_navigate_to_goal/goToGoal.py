@@ -33,12 +33,12 @@ class State():
         self.cur_state = 0
         self.goals = goals
     
-        self.min_safe_dist = 0.5
+        self.min_safe_dist = 0.3
         self.EPISILON = 0.1
         self.goal_err = 0.15
         
         self.time_elapsed = 0
-        self.min_time_elasped = 50
+        self.min_time_elasped = 60
         
         self.goal_state_counter = 0
         
@@ -48,7 +48,7 @@ class State():
         if self.cur_state == 2:
             # Stay at goal for 10 seconds
             self.goal_state_counter += 1
-            if self.goal_state_counter >= 100:
+            if self.goal_state_counter >= 50:
                 self.cur_state = 0
         elif (distance_to_object <= self.min_safe_dist + self.EPISILON) and self.cur_state != 1:
             self.cur_state = 1
@@ -207,7 +207,7 @@ class GoToGoal(Node):
             u_angular = self.Kp_angular * ang
 
             u_angular = np.clip(u_angular, -1.5, 1.5)
-            u_linear = np.clip(u_linear, -0.125,0.125)
+            u_linear = np.clip(u_linear, -0.1,0.1)
             
             
             self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
@@ -226,10 +226,10 @@ class GoToGoal(Node):
             u_angular = self.Kp_angular * ang
             
             u_angular = np.clip(u_angular, -1.5, 1.5)
-            u_linear = np.clip(u_linear, -0.125,0.125)
+            u_linear = np.clip(u_linear, -0.1,0.1)
             
-            if dst < -0.2:
-                u_angular = -u_angular
+            if dst < 0.2:
+                u_angular = 0.0
                 u_linear = -u_linear
             
             self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
