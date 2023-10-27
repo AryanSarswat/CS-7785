@@ -99,7 +99,7 @@ class GoToGoal(Node):
         self.pos_sub # prevent unsued variable warning
         
         self.distance_to_object = float('inf')
-        self.corner_angle = 0.0
+        self.object_angle = 0.0
         
         self.range_sub = self.create_subscription(
                 String,
@@ -146,7 +146,7 @@ class GoToGoal(Node):
         dst = float(dst)
         angle = float(angle)
         self.distance_to_object = dst
-        self.corner_angle = angle
+        self.object_angle = angle
     
     def odom_callback(self, data):
         self.update_Odometry(data)
@@ -207,7 +207,7 @@ class GoToGoal(Node):
             u_angular = self.Kp_angular * ang
 
             u_angular = np.clip(u_angular, -1.5, 1.5)
-            u_linear = np.clip(u_linear, -0.1,0.1)
+            u_linear = np.clip(u_linear, -0.125,0.125)
             
             
             self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
@@ -219,15 +219,14 @@ class GoToGoal(Node):
         elif self.state_machine.get_state() == 1:
             # Obstacle Avoidance
             dst = self.distance_to_object
-            ang = self.corner_angle
+            ang = self.object_angle
             
-            while ang <= -np.pi:
-                ang += 2*np.pi
-            while ang > np.pi:
-                ang -= 2*np.pi
             
-            u_linear = 0.05
+            u_linear = self.Kp_linear * dst
             u_angular = self.Kp_angular * ang
+            
+            u_angular = np.clip(u_angular, -1.5, 1.5)
+            u_linear = np.clip(u_linear, -0.125,0.125)
             
             self._vel_publisher.publish(Twist(linear=Vector3(x=u_linear), angular=Vector3(z=u_angular)))
         elif self.state_machine.get_state() == 2:

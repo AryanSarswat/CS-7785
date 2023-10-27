@@ -37,6 +37,7 @@ class RangeDetector(Node):
         self.publisher = self.create_publisher(String, 'distance', 10)
                 
     def _lidar_callback(self, laserScan):
+        angle_increment_per_index = laserScan.angle_increment
         dst_values =  laserScan.ranges
         
         idx = 0
@@ -51,6 +52,8 @@ class RangeDetector(Node):
                 
                 if not np.isnan(dst_values[idx]):
                     total.append(dst_values[idx])
+                else:
+                    dst_values[idx] = dst_values[idx - 1]
             
             total = np.array(total)
             
@@ -64,24 +67,23 @@ class RangeDetector(Node):
                     left_idx = min_idx
                     right_idx = min_idx  
                     corner_idx = None
+                    displace = ((5/180) * np.pi) / angle_increment_per_index
                     while corner_idx == None:
                         n_left_idx = (left_idx - 1) % len(dst_values)
                         n_right_idx = (right_idx + 1) % len(dst_values)
                         
-                        if abs(dst_values[left_idx] - dst_values[n_left_idx]) >= 0.2:
-                            corner_idx = (n_left_idx - 5) % len(dst_values)
+                        if abs(dst_values[left_idx] - dst_values[n_left_idx]) > 0.5:
+                            # Displace the corner by 5 degrees
+                            corner_idx = n_left_idx - displace
                             break
-                        if abs(dst_values[right_idx] - dst_values[n_right_idx]) >= 0.2:
-                            corner_idx = n_right_idx + 5 % len(dst_values)
+                        if abs(dst_values[right_idx] - dst_values[n_right_idx]) > 0.5:
+                            corner_idx = n_right_idx + displace
                             break
                         
                         left_idx = n_left_idx
                         right_idx = n_right_idx
 
-                    angle = (min_idx - corner_idx) * laserScan.angle_increment
-                    
-                    if angle > np.pi:
-                        angle = -(angle % np.pi)
+                    angle = corner_idx * angle_increment_per_index
                     
                 msg = String()
                 msg.data = f"{dst},{angle}" 
