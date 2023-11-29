@@ -1,0 +1,52 @@
+[3.686s] Invoking command in '/home/burger/CS-7785/lab_6/build/final_lab': PYTHONPATH=/home/burger/CS-7785/lab_6/build/final_lab/prefix_override:/home/burger/CS-7785/lab_6/install/final_lab/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_6/build/final_lab/build --no-deps install_data
+[4.980s] running develop
+[5.113s] /usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[5.114s] !!
+[5.115s] 
+[5.116s]         ********************************************************************************
+[5.116s]         Please avoid running ``setup.py`` and ``easy_install``.
+[5.117s]         Instead, use pypa/build, pypa/installer or other
+[5.118s]         standards-based tools.
+[5.119s] 
+[5.119s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[5.120s]         ********************************************************************************
+[5.121s] 
+[5.122s] !!
+[5.122s]   easy_install.initialize_options(self)
+[5.435s] /usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[5.437s] !!
+[5.438s] 
+[5.439s]         ********************************************************************************
+[5.440s]         Please avoid running ``setup.py`` directly.
+[5.440s]         Instead, use pypa/build, pypa/installer or other
+[5.441s]         standards-based tools.
+[5.441s] 
+[5.442s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[5.442s]         ********************************************************************************
+[5.443s] 
+[5.443s] !!
+[5.444s]   self.initialize_options()
+[6.156s] running egg_info
+[6.156s] creating final_lab.egg-info
+[6.210s] writing final_lab.egg-info/PKG-INFO
+[6.212s] writing dependency_links to final_lab.egg-info/dependency_links.txt
+[6.212s] writing entry points to final_lab.egg-info/entry_points.txt
+[6.213s] writing requirements to final_lab.egg-info/requires.txt
+[6.214s] writing top-level names to final_lab.egg-info/top_level.txt
+[6.214s] writing manifest file 'final_lab.egg-info/SOURCES.txt'
+[6.329s] reading manifest file 'final_lab.egg-info/SOURCES.txt'
+[6.332s] writing manifest file 'final_lab.egg-info/SOURCES.txt'
+[6.391s] running build_ext
+[6.395s] Creating /home/burger/CS-7785/lab_6/install/final_lab/lib/python3.10/site-packages/final-lab.egg-link (link to .)
+[6.398s] Installing controller script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab
+[6.400s] Installing get_object_range script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab
+[6.400s] Installing sign_detector script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab
+[6.402s] 
+[6.403s] Installed /home/burger/CS-7785/lab_6/build/final_lab
+[6.403s] running install_data
+[6.404s] creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index
+[6.405s] creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index
+[6.405s] creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index/packages
+[6.406s] copying resource/final_lab -> /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index/packages
+[6.406s] copying package.xml -> /home/burger/CS-7785/lab_6/install/final_lab/share/final_lab
+[6.559s] Invoked command in '/home/burger/CS-7785/lab_6/build/final_lab' returned '0': PYTHONPATH=/home/burger/CS-7785/lab_6/build/final_lab/prefix_override:/home/burger/CS-7785/lab_6/install/final_lab/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/burger/CS-7785/lab_6/build/final_lab/build --no-deps install_data

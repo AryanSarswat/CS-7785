@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating final_lab.egg-info
+writing final_lab.egg-info/PKG-INFO
+writing dependency_links to final_lab.egg-info/dependency_links.txt
+writing entry points to final_lab.egg-info/entry_points.txt
+writing requirements to final_lab.egg-info/requires.txt
+writing top-level names to final_lab.egg-info/top_level.txt
+writing manifest file 'final_lab.egg-info/SOURCES.txt'
+reading manifest file 'final_lab.egg-info/SOURCES.txt'
+writing manifest file 'final_lab.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/burger/CS-7785/lab_6/install/final_lab/lib/python3.10/site-packages/final-lab.egg-link (link to .)
+Installing controller script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab
+Installing get_object_range script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab
+Installing sign_detector script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab
+
+Installed /home/burger/CS-7785/lab_6/build/final_lab
+running install_data
+creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index
+creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index
+creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index/packages
+copying resource/final_lab -> /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index/packages
+copying package.xml -> /home/burger/CS-7785/lab_6/install/final_lab/share/final_lab

@@ -1,0 +1,123 @@
+[0.000000] (-) TimerEvent: {}
+[0.001653] (final_lab) JobQueued: {'identifier': 'final_lab', 'dependencies': OrderedDict()}
+[0.002247] (final_lab) JobStarted: {'identifier': 'final_lab'}
+[0.099138] (-) TimerEvent: {}
+[0.199876] (-) TimerEvent: {}
+[0.300601] (-) TimerEvent: {}
+[0.401238] (-) TimerEvent: {}
+[0.501916] (-) TimerEvent: {}
+[0.602757] (-) TimerEvent: {}
+[0.704059] (-) TimerEvent: {}
+[0.804734] (-) TimerEvent: {}
+[0.905441] (-) TimerEvent: {}
+[1.006260] (-) TimerEvent: {}
+[1.106949] (-) TimerEvent: {}
+[1.207593] (-) TimerEvent: {}
+[1.308291] (-) TimerEvent: {}
+[1.409009] (-) TimerEvent: {}
+[1.509627] (-) TimerEvent: {}
+[1.610244] (-) TimerEvent: {}
+[1.710867] (-) TimerEvent: {}
+[1.811488] (-) TimerEvent: {}
+[1.912104] (-) TimerEvent: {}
+[2.012784] (-) TimerEvent: {}
+[2.113824] (-) TimerEvent: {}
+[2.214464] (-) TimerEvent: {}
+[2.315258] (-) TimerEvent: {}
+[2.415964] (-) TimerEvent: {}
+[2.516639] (-) TimerEvent: {}
+[2.617419] (-) TimerEvent: {}
+[2.718245] (-) TimerEvent: {}
+[2.819020] (-) TimerEvent: {}
+[2.919645] (-) TimerEvent: {}
+[3.020272] (-) TimerEvent: {}
+[3.120883] (-) TimerEvent: {}
+[3.221489] (-) TimerEvent: {}
+[3.322197] (-) TimerEvent: {}
+[3.422895] (-) TimerEvent: {}
+[3.523954] (-) TimerEvent: {}
+[3.625028] (-) TimerEvent: {}
+[3.685133] (final_lab) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/home/burger/CS-7785/lab_6/build/final_lab/build', '--no-deps', 'install_data'], 'cwd': '/home/burger/CS-7785/lab_6/build/final_lab', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'burger', 'SSH_CLIENT': '192.168.1.59 36182 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/burger/turtlebot3_ws/install/v4l2_camera/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/burger', 'OLDPWD': '/home/burger/CS-7785/lab_6/final_lab', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/burger/turtlebot3_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'burger', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/burger/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'ROS_DOMAIN_ID': '54', 'AMENT_PREFIX_PATH': '/home/burger/turtlebot3_ws/install/v4l2_camera:/home/burger/turtlebot3_ws/install/turtlebot3:/home/burger/turtlebot3_ws/install/turtlebot3_teleop:/home/burger/turtlebot3_ws/install/turtlebot3_bringup:/home/burger/turtlebot3_ws/install/turtlebot3_node:/home/burger/turtlebot3_ws/install/turtlebot3_example:/home/burger/turtlebot3_ws/install/turtlebot3_description:/home/burger/turtlebot3_ws/install/ld08_driver:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/burger/CS-7785/lab_6/build/final_lab', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.1.59 36182 192.168.1.148 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/burger/CS-7785/lab_6/build/final_lab/prefix_override:/home/burger/CS-7785/lab_6/install/final_lab/lib/python3.10/site-packages:/home/burger/turtlebot3_ws/build/turtlebot3_teleop:/home/burger/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages:/home/burger/turtlebot3_ws/build/turtlebot3_example:/home/burger/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/burger/turtlebot3_ws/install/v4l2_camera:/home/burger/turtlebot3_ws/install/turtlebot3:/home/burger/turtlebot3_ws/install/turtlebot3_bringup:/home/burger/turtlebot3_ws/install/turtlebot3_node:/home/burger/turtlebot3_ws/install/turtlebot3_description:/home/burger/turtlebot3_ws/install/ld08_driver'}, 'shell': False}
+[3.725173] (-) TimerEvent: {}
+[3.825855] (-) TimerEvent: {}
+[3.926518] (-) TimerEvent: {}
+[4.027164] (-) TimerEvent: {}
+[4.127733] (-) TimerEvent: {}
+[4.228639] (-) TimerEvent: {}
+[4.329280] (-) TimerEvent: {}
+[4.429926] (-) TimerEvent: {}
+[4.530527] (-) TimerEvent: {}
+[4.631342] (-) TimerEvent: {}
+[4.731979] (-) TimerEvent: {}
+[4.832646] (-) TimerEvent: {}
+[4.933313] (-) TimerEvent: {}
+[4.981519] (final_lab) StdoutLine: {'line': b'running develop\n'}
+[5.033498] (-) TimerEvent: {}
+[5.114654] (final_lab) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[5.115809] (final_lab) StderrLine: {'line': b'!!\n'}
+[5.116694] (final_lab) StderrLine: {'line': b'\n'}
+[5.117438] (final_lab) StderrLine: {'line': b'        ********************************************************************************\n'}
+[5.118261] (final_lab) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[5.118983] (final_lab) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[5.119688] (final_lab) StderrLine: {'line': b'        standards-based tools.\n'}
+[5.120455] (final_lab) StderrLine: {'line': b'\n'}
+[5.121176] (final_lab) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[5.121855] (final_lab) StderrLine: {'line': b'        ********************************************************************************\n'}
+[5.122613] (final_lab) StderrLine: {'line': b'\n'}
+[5.123350] (final_lab) StderrLine: {'line': b'!!\n'}
+[5.124034] (final_lab) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[5.133643] (-) TimerEvent: {}
+[5.234256] (-) TimerEvent: {}
+[5.334955] (-) TimerEvent: {}
+[5.436291] (final_lab) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n'}
+[5.437456] (-) TimerEvent: {}
+[5.438237] (final_lab) StderrLine: {'line': b'!!\n'}
+[5.439398] (final_lab) StderrLine: {'line': b'\n'}
+[5.440279] (final_lab) StderrLine: {'line': b'        ********************************************************************************\n'}
+[5.441205] (final_lab) StderrLine: {'line': b'        Please avoid running ``setup.py`` directly.\n'}
+[5.442011] (final_lab) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[5.442778] (final_lab) StderrLine: {'line': b'        standards-based tools.\n'}
+[5.443320] (final_lab) StderrLine: {'line': b'\n'}
+[5.443701] (final_lab) StderrLine: {'line': b'        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.\n'}
+[5.444086] (final_lab) StderrLine: {'line': b'        ********************************************************************************\n'}
+[5.444553] (final_lab) StderrLine: {'line': b'\n'}
+[5.445140] (final_lab) StderrLine: {'line': b'!!\n'}
+[5.445551] (final_lab) StderrLine: {'line': b'  self.initialize_options()\n'}
+[5.537580] (-) TimerEvent: {}
+[5.638233] (-) TimerEvent: {}
+[5.738888] (-) TimerEvent: {}
+[5.839551] (-) TimerEvent: {}
+[5.940196] (-) TimerEvent: {}
+[6.040811] (-) TimerEvent: {}
+[6.141409] (-) TimerEvent: {}
+[6.157680] (final_lab) StdoutLine: {'line': b'running egg_info\n'}
+[6.158329] (final_lab) StdoutLine: {'line': b'creating final_lab.egg-info\n'}
+[6.212204] (final_lab) StdoutLine: {'line': b'writing final_lab.egg-info/PKG-INFO\n'}
+[6.213527] (final_lab) StdoutLine: {'line': b'writing dependency_links to final_lab.egg-info/dependency_links.txt\n'}
+[6.214413] (final_lab) StdoutLine: {'line': b'writing entry points to final_lab.egg-info/entry_points.txt\n'}
+[6.215161] (final_lab) StdoutLine: {'line': b'writing requirements to final_lab.egg-info/requires.txt\n'}
+[6.215695] (final_lab) StdoutLine: {'line': b'writing top-level names to final_lab.egg-info/top_level.txt\n'}
+[6.216341] (final_lab) StdoutLine: {'line': b"writing manifest file 'final_lab.egg-info/SOURCES.txt'\n"}
+[6.241522] (-) TimerEvent: {}
+[6.331058] (final_lab) StdoutLine: {'line': b"reading manifest file 'final_lab.egg-info/SOURCES.txt'\n"}
+[6.333982] (final_lab) StdoutLine: {'line': b"writing manifest file 'final_lab.egg-info/SOURCES.txt'\n"}
+[6.341680] (-) TimerEvent: {}
+[6.392869] (final_lab) StdoutLine: {'line': b'running build_ext\n'}
+[6.397182] (final_lab) StdoutLine: {'line': b'Creating /home/burger/CS-7785/lab_6/install/final_lab/lib/python3.10/site-packages/final-lab.egg-link (link to .)\n'}
+[6.400246] (final_lab) StdoutLine: {'line': b'Installing controller script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab\n'}
+[6.401523] (final_lab) StdoutLine: {'line': b'Installing get_object_range script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab\n'}
+[6.402416] (final_lab) StdoutLine: {'line': b'Installing sign_detector script to /home/burger/CS-7785/lab_6/install/final_lab/lib/final_lab\n'}
+[6.404016] (final_lab) StdoutLine: {'line': b'\n'}
+[6.404774] (final_lab) StdoutLine: {'line': b'Installed /home/burger/CS-7785/lab_6/build/final_lab\n'}
+[6.405272] (final_lab) StdoutLine: {'line': b'running install_data\n'}
+[6.405988] (final_lab) StdoutLine: {'line': b'creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index\n'}
+[6.406617] (final_lab) StdoutLine: {'line': b'creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index\n'}
+[6.407222] (final_lab) StdoutLine: {'line': b'creating /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index/packages\n'}
+[6.407693] (final_lab) StdoutLine: {'line': b'copying resource/final_lab -> /home/burger/CS-7785/lab_6/install/final_lab/share/ament_index/resource_index/packages\n'}
+[6.408322] (final_lab) StdoutLine: {'line': b'copying package.xml -> /home/burger/CS-7785/lab_6/install/final_lab/share/final_lab\n'}
+[6.442050] (-) TimerEvent: {}
+[6.544075] (-) TimerEvent: {}
+[6.556000] (final_lab) CommandEnded: {'returncode': 0}
+[6.644909] (-) TimerEvent: {}
+[6.694158] (final_lab) JobEnded: {'identifier': 'final_lab', 'rc': 0}
+[6.697099] (-) EventReactorShutdown: {}

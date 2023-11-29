@@ -61,7 +61,7 @@ class Controller(Node):
         self.TURNING_RIGHT = False
         self.TURNING = False
         
-        self.ALLOWANCE = 0.05
+        self.ALLOWANCE = 0.1
         
     
     def odom_callback(self, data):
@@ -111,7 +111,7 @@ class Controller(Node):
             self.turn_goal_check()
         else:
             # Adjust this to be distance from wall to center of tile
-            if self.distance_to_object <= 0.65:
+            if self.distance_to_object <= 0.6:
                 # Check sign and turn accordingly
                 self.stop()
                 self.accumalate = True
@@ -137,6 +137,17 @@ class Controller(Node):
                 elif most_common_sign == 1:
                     self.get_logger().info("Turning Left")
                     
+                    # if self.globalAng > np.pi / 2:
+                    #     self.targetGlobalAng = 0.0
+                    #     self.Init = True
+                    #     self.Init_pos = Point()
+                    #     self.Init_pos.x = 0.0
+                    #     self.Init_pos.y = 0.0
+                    #     self.Init_ang = 0.0
+                    #     self.globalPos = Point()
+                    #     self.globalAng = 0.0
+                    #     self.targetGlobalAng = 0.0
+                    
                     # Turn Left
                     self.targetGlobalAng += np.pi/2
                     # while self.targetGlobalAng <= -np.pi:
@@ -148,6 +159,18 @@ class Controller(Node):
                     # self.turn_left()
                 elif most_common_sign == 2:
                     self.get_logger().info("Turning Right")
+                    
+                    # if self.globalAng < -np.pi / 2:
+                    #     self.targetGlobalAng = 0.0
+                    #     self.Init = True
+                    #     self.Init_pos = Point()
+                    #     self.Init_pos.x = 0.0
+                    #     self.Init_pos.y = 0.0
+                    #     self.Init_ang = 0.0
+                    #     self.globalPos = Point()
+                    #     self.globalAng = 0.0
+                    #     self.targetGlobalAng = 0.0
+                    
                     # Turn Right
                     self.targetGlobalAng -= np.pi/2
                     # while self.targetGlobalAng <= -np.pi:
@@ -194,7 +217,7 @@ class Controller(Node):
         if self.globalAng > np.pi:
             angle_robot_frame = -(2*np.pi - self.globalAng)
         elif self.globalAng < -np.pi:
-            angle_robot_frame = -(2*np.pi + self.globalAng)
+            angle_robot_frame = (2*np.pi + self.globalAng)
         msg.angular.z = Kp * (target_angle_robot_frame - angle_robot_frame)
         self.vel_publisher.publish(msg)
     
@@ -206,23 +229,22 @@ class Controller(Node):
         if self.globalAng > np.pi:
             angle_robot_frame = -(2*np.pi - self.globalAng)
         elif self.globalAng < -np.pi:
-            angle_robot_frame = -(2*np.pi + self.globalAng)
+            angle_robot_frame = (2*np.pi + self.globalAng)
         diff = np.abs(target_angle_robot_frame - angle_robot_frame)
         self.get_logger().info(f"Turning : diff = {diff} = {target_angle_robot_frame} - {angle_robot_frame}")
-        if diff < self.ALLOWANCE:
+        if diff < self.ALLOWANCE:   
             self.TURNING = False
             self.vel_publisher.publish(Twist(linear=Vector3(x=0.0), angular=Vector3(z=0.0)))
             
-            if self.targetGlobalAng == -np.pi or self.targetGlobalAng == np.pi:
-                self.targetGlobalAng = 0.0
-                self.Init = True
-                self.Init_pos = Point()
-                self.Init_pos.x = 0.0
-                self.Init_pos.y = 0.0
-                self.Init_ang = 0.0
-                self.globalPos = Point()
-                self.globalAng = 0.0
-                self.targetGlobalAng = 0.0
+            self.targetGlobalAng = 0.0
+            self.Init = True
+            self.Init_pos = Point()
+            self.Init_pos.x = 0.0
+            self.Init_pos.y = 0.0
+            self.Init_ang = 0.0
+            self.globalPos = Point()
+            self.globalAng = 0.0
+            self.targetGlobalAng = 0.0
     
     def turn_left(self):
         self.before_action_pose = self.globalAng
