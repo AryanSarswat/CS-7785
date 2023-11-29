@@ -1,0 +1,5 @@
+[console_scripts]
+controller = final_lab.controller:main
+get_object_range = final_lab.get_object_range:main
+sign_detector = final_lab.sign_detector:main
+
